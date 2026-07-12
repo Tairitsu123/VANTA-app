@@ -1,0 +1,99 @@
+/* Payment Options Styling */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.payment-option {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.payment-option:hover {
+    border-color: #D1D5DB;
+}
+.payment-option.active {
+    border-color: var(--vanta-yellow);
+    box-shadow: 0 0 0 1px var(--vanta-yellow);
+}
+
+.pay-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 16px;
+}
+.bg-pink { background: #BE185D; }
+.bg-blue { background: #1D4ED8; }
+.bg-green { background: #16A34A; }
+
+.pay-info {
+    flex: 1;
+}
+.pay-info h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+.pay-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.radio-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.radio-circle.active {
+    border-color: #3B82F6;
+}
+.inner-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--vanta-yellow);
+}
+
+/* Coupon Input */
+.coupon-input {
+    display: flex;
+    gap: 12px;
+}
+.coupon-input input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    background: #F9FAFB;
+}
+.coupon-input input:focus {
+    outline: none;
+    border-color: var(--vanta-yellow);
+}
+.btn-apply {
+    background: var(--vanta-yellow);
+    border: none;
+    padding: 0 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.secure-text {
+    margin-top: 16px;
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta - Đăng nhập</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-yellow: #ffce00;
+            --bg-light-gray: #f4f5f9;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        /* --- LEFT PANEL --- */
+        .left-panel {
+            background: linear-gradient(rgba(18, 24, 36, 0.7), rgba(18, 24, 36, 0.9)), 
+                        url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1000') center/cover;
+            min-height: 100vh;
+            color: white;
+            position: relative;
+        }
+
+        .logo-box {
+            background-color: var(--primary-yellow);
+            color: #000;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .badge-custom {
+            background-color: var(--primary-yellow);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        .glass-card i { color: var(--primary-yellow); font-size: 20px;}
+
+        /* --- RIGHT PANEL (FORM) --- */
+        .right-panel {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+        }
+
+        /* Tùy chỉnh Nút chọn Role */
+        .role-toggle {
+            background-color: var(--bg-light-gray);
+            border-radius: 50px;
+            padding: 4px;
+            display: flex;
+            margin-bottom: 24px;
+        }
+
+        .role-toggle input[type="radio"] { display: none; }
+        
+        .role-toggle label {
+            width: 50%;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            color: #6b7280;
+            transition: all 0.3s ease;
+        }
+
+        /* Khi radio được chọn thì label có màu vàng */
+        .role-toggle input[type="radio"]:checked + label {
+            background-color: var(--primary-yellow);
+            color: #000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-weight: 600;
+        }
+
+        /* Tùy chỉnh Input */
+        .form-label { font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 6px; }
+        .input-group { border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .input-group:focus-within { border-color: #d1d5db; box-shadow: 0 0 0 3px rgba(0,0,0,0.03); }
+        
+        .form-control {
+            background-color: var(--bg-light-gray);
+            border: none;
+            padding: 12px 16px;
+            font-size: 14px;
+        }
+        .form-control:focus { background-color: var(--bg-light-gray); box-shadow: none; }
+        
+        .input-group-text {
+            background-color: var(--bg-light-gray);
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+        }
+
+        .forgot-password { font-size: 12px; color: #6b7280; text-decoration: none; }
+        .forgot-password:hover { color: #000; text-decoration: underline; }
+
+        /* Nút Submit chính */
+        .btn-submit {
+            background-color: var(--primary-yellow);
+            color: #000;
+            font-weight: 600;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            transition: 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-submit:hover { background-color: #e6b900; color: #000;}
+
+        /* Divider "Hoặc" */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 24px 0;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+        .divider::before, .divider::after {
+            content: ''; flex: 1; border-bottom: 1px solid #e5e7eb;
+        }
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
+
+        /* Social Buttons */
+        .btn-social {
+            border: 1px solid #e5e7eb;
+            background-color: #fff;
+            color: #374151;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+        .btn-social:hover { background-color: #f9fafb; border-color: #d1d5db; }
+        
+        /* Hiệu ứng cho chữ "Tạo tài khoản" */
+        .text-brand { 
+            color: var(--primary-yellow); 
+            font-weight: 600; 
+            text-decoration: none; 
+            display: inline-block; /* Bắt buộc để dùng transform */
+            transition: all 0.3s ease;
+        }
+        .text-brand:hover { 
+            text-decoration: underline; 
+            color: #d4a000; 
+            transform: scale(1.08); /* Phóng to làm nổi chữ lên */
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.1); /* Thêm bóng mờ để tăng cảm giác nổi */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            
+            <!-- CỘT TRÁI (Hiển thị hình ảnh và giới thiệu) -->
+            <div class="col-lg-6 d-none d-lg-flex left-panel p-5 flex-column justify-content-between">
+                <div>
+                    <div class="d-flex align-items-center gap-2 mb-5">
+                        <div class="logo-box"><i class="fa-solid fa-bolt"></i></div>
+                        <span class="fs-5 fw-bold">Vanta</span>
+                    </div>
+                    
+                    <div class="mt-5 pt-5 w-75">
+                        <span class="badge-custom mb-3">Phổ biến nhất</span>
+                        <h1 class="fw-bold mb-3" style="font-size: 3rem;">Chào mừng bạn đến với Vanta.</h1>
+                        <p class="text-light" style="opacity: 0.8; font-size: 1.1rem; line-height: 1.6;">Nâng tầm trải nghiệm sống của bạn với hệ sinh thái dịch vụ đa năng, từ dọn dẹp nhà cửa đến quản lý tiện ích cá nhân chỉ trong vài chạm.</p>
+                    </div>
+                </div>
+
+                <!-- 2 Thẻ Glassmorphism -->
+                <div class="row g-4 mt-4 w-100">
+                    <div class="col-6">
+                        <div class="glass-card">
+                            <i class="fa-solid fa-shield-check mb-2"></i>
+                            <h5 class="fw-bold fs-6 mb-1">Tin cậy</h5>
+                            <p class="mb-0" style="font-size: 13px; opacity: 0.8;">Đối tác được kiểm định 100%</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="glass-card">
+                            <i class="fa-solid fa-bolt mb-2"></i>
+                            <h5 class="fw-bold fs-6 mb-1">Nhanh chóng</h5>
+                            <p class="mb-0" style="font-size: 13px; opacity: 0.8;">Phản hồi trong vòng 15 phút</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CỘT PHẢI (Form Đăng nhập) -->
+            <div class="col-lg-6 right-panel">
+                <div class="form-container">
+                    
+                    <div class="mb-4">
+                        <h2 class="fw-bold text-dark mb-2">Đăng nhập</h2>
+                        <p class="text-muted" style="font-size: 14px;">Trải nghiệm dịch vụ chuyên nghiệp hàng đầu.</p>
+                    </div>
+
+                    <form action="#">
+                        <!-- Tùy chọn Vai trò (Dùng Radio Button ẩn) -->
+                        <div class="role-toggle">
+                            <input type="radio" id="role-user" name="role" checked>
+                            <label for="role-user">Người dùng</label>
+                            
+                            <input type="radio" id="role-admin" name="role">
+                            <label for="role-admin">Quản trị viên</label>
+                        </div>
+
+                        <!-- Email / SĐT -->
+                        <div class="mb-3">
+                            <label class="form-label">Email hoặc Số điện thoại</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="vanta@example.com">
+                                <span class="input-group-text"><i class="fa-solid fa-at"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- Mật khẩu -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <label class="form-label mb-0">Mật khẩu</label>
+                                <a href="#" class="forgot-password">Quên mật khẩu?</a>
+                            </div>
+                            <div class="input-group mt-2">
+                                <input type="password" class="form-control" placeholder="••••••••" id="password-input">
+                                <!-- Nút con mắt để ẩn/hiện mật khẩu -->
+                                <span class="input-group-text" id="toggle-password">
+                                    <i class="fa-regular fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Ghi nhớ đăng nhập -->
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label text-muted" for="rememberMe" style="font-size: 13px;">
+                                Ghi nhớ đăng nhập
+                            </label>
+                        </div>
+
+                        <!-- Nút Submit (Link đến trang chủ) -->
+                        <a href="trang_chu.html" class="btn btn-submit w-100">
+                            Đăng nhập ngay <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <div class="divider">Hoặc đăng nhập với</div>
+
+                        <!-- Social Login -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-social w-100 d-flex align-items-center justify-content-center gap-2">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" width="18">
+                                    Google
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-social w-100 d-flex align-items-center justify-content-center gap-2">
+                                    <i class="fa-brands fa-facebook text-primary fs-5"></i>
+                                    Facebook
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Trỏ sang trang đăng ký d_ky.html -->
+                        <div class="text-center text-muted" style="font-size: 14px;">
+                            Bạn chưa có tài khoản? <a href="d_ky.html" class="text-brand">Tạo tài khoản</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script xử lý Ẩn/Hiện mật khẩu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePasswordBtn = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password-input');
+            const icon = togglePasswordBtn.querySelector('i');
+
+            togglePasswordBtn.addEventListener('click', function() {
+                // Kiểm tra type của input
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash'); // Đổi thành icon nhắm mắt
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye'); // Đổi về icon mở mắt
+                }
+            });
+        });
+    </script>
+</body>
+</html>

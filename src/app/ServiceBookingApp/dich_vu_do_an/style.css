@@ -1,0 +1,294 @@
+/* Layout Adjustments */
+.p-0 { padding: 0 !important; }
+.p-32 { padding: 32px; }
+.two-cols-layout {
+    display: flex;
+    height: calc(100vh - 73px); /* Minus topbar */
+}
+.left-col {
+    flex: 1;
+    overflow-y: auto;
+}
+.right-col-cart {
+    width: 360px;
+    background: white;
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+/* Typography & Utils */
+.text-muted { color: var(--text-muted); }
+.text-sm { font-size: 13px; }
+.text-xs { font-size: 12px; }
+.fw-600 { font-weight: 600; }
+.text-yellow { color: #F59E0B; }
+.text-yellow-lg { color: #D97706; font-size: 16px; }
+.text-yellow-link { color: #D97706; font-weight: 500; text-decoration: none; }
+.text-danger { color: #EF4444; }
+.text-green { color: #10B981; }
+.text-red-lg { color: #EF4444; font-size: 18px; font-weight: 700; }
+.text-decoration-none { text-decoration: none; }
+.bg-gray { background-color: #E5E7EB; }
+.bg-light { background-color: #F9FAFB; }
+.w-100 { width: 100%; }
+.mt-1 { margin-top: 4px; }
+.mt-4 { margin-top: 24px; }
+.mt-auto { margin-top: auto; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 16px; }
+.mb-4 { margin-bottom: 24px; }
+.my-3 { margin: 16px 0; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.align-items-center { align-items: center; }
+.justify-content-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+
+/* Location Banner */
+.location-banner {
+    background: #FEFCE8;
+    border: 1px solid #FEF08A;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* Category Pills */
+.category-pills {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+.pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.pill.active {
+    background: var(--vanta-yellow);
+    border-color: var(--vanta-yellow);
+}
+
+/* Food Promo Banner */
+.food-promo-banner {
+    background: #FFEDD5; /* Light orange */
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+}
+.promo-text h2 {
+    color: #9A3412;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+.promo-text p {
+    color: #C2410C;
+    margin-bottom: 16px;
+}
+.btn-outline-primary {
+    background: white;
+    color: #9A3412;
+    border: 1px solid #F97316;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.promo-img {
+    font-size: 64px;
+    font-weight: 800;
+    color: rgba(249, 115, 22, 0.2);
+    position: absolute;
+    right: 20px;
+}
+
+/* Horizontal Scroll (Gợi ý) */
+.horizontal-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+}
+.food-card-small {
+    min-width: 200px;
+    width: 200px;
+}
+.food-card-small .img-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+.food-card-small .placeholder-img {
+    height: 120px;
+    width: 100%;
+}
+.badge-discount, .badge-dark {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+}
+.badge-discount { background: var(--vanta-yellow); color: var(--text-dark); }
+.badge-dark { background: #111827; color: white; }
+
+.food-card-small h4 { font-size: 15px; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.meta-info { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+.dot { margin: 0 4px; }
+
+/* Near you Filters */
+.filters {
+    display: flex;
+    gap: 8px;
+}
+.btn-filter {
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Restaurant List */
+.restaurant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.restaurant-card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.rest-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+.rest-info {
+    flex: 1;
+}
+.rest-info h4 { font-size: 16px; margin-bottom: 4px; }
+.rest-thumbnails {
+    display: flex;
+    gap: 8px;
+}
+.thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+
+/* Cart Right Column */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.cart-header h3 { font-size: 16px; }
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.cart-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.item-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+.item-details { flex: 1; }
+.item-details h5 { font-size: 14px; margin-bottom: 2px; }
+
+.stepper-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+.stepper-input button {
+    background: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.stepper-input span {
+    font-size: 13px;
+    width: 20px;
+    text-align: center;
+}
+
+.form-control {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    outline: none;
+    resize: none;
+}
+
+/* Cart Summary */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.promo-input-group {
+    display: flex;
+    gap: 8px;
+}
+.btn-apply {
+    background: var(--vanta-yellow);
+    border: none;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 16px 0;
+}
+.btn-primary {
+    background: var(--vanta-yellow);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}

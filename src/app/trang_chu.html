@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --vanta-bg-dark: #1e293b;
+            --vanta-yellow: #facc15;
+            --vanta-text-dark: #1e293b;
+            --vanta-btn-dark: #5c4d04;
+        }
+        body { 
+            background-color: #f8f9fa; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #334155;
+        }
+        .sidebar { 
+            background-color: #1e293b; 
+            min-height: 100vh; 
+            color: #94a3b8; 
+            position: fixed;
+            width: 240px;
+            z-index: 100;
+        }
+        .main-content {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+        }
+        .sidebar .nav-link { 
+            color: #94a3b8; 
+            border-radius: 8px; 
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover { 
+            background-color: #2d3748; 
+            color: #fff; 
+        }
+
+        .bg-vanta-yellow { background-color: var(--vanta-yellow); }
+        .text-vanta-dark { color: var(--vanta-text-dark); }
+        .rounded-4 { border-radius: 1rem !important; }
+        .rounded-5 { border-radius: 1.5rem !important; }
+
+        .ai-box {
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-service { 
+            border: none; 
+            border-radius: 1.5rem; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+        .badge-pos { 
+            position: absolute; 
+            top: 16px; 
+            left: 16px; 
+            z-index: 10; 
+            font-size: 11px;
+            padding: 6px 14px;
+        }
+
+        .process-row {
+            position: relative;
+        }
+        .process-row::before {
+            content: "";
+            position: absolute;
+            top: 32px;
+            left: 12%;
+            width: 76%;
+            height: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
+        }
+        .step-icon-box {
+            width: 64px;
+            height: 64px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .stat-label {
+            color: #718096;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .logo-box {
+            width: 56px;
+            height: 56px;
+            background-color: var(--vanta-yellow);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827; 
+        }
+
+        .brand-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 2px !important;
+        }
+
+        .brand-subtitle {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+        
+
+    </style>
+</head>
+<body>
+
+<div class="container-fluid p-0 d-flex">
+    
+    <header class="sidebar p-3 d-flex flex-column justify-content-between">
+        <div>
+                    <!-- Logo Vanta -->
+            <div class="d-flex align-items-center ps-1 mb-4">
+                <div class="logo-box me-3">V</div>
+                <div>
+                    <h5 class="m-0 brand-title">Vanta</h5>
+                    <small class="brand-subtitle d-block">LIFE MADE EASIER</small>
+                </div>
+            </div>
+
+            <nav class="nav flex-column gap-1">
+                <a class="nav-link active" href="trang_chu.html"><i class="bi bi-house-door-fill me-3 fs-5"></i> Trang chủ</a>
+                <a class="nav-link" href="dich_vu_home.html"><i class="bi bi-briefcase-fill me-3 fs-5"></i> Đặt dịch vụ</a>
+                <a class="nav-link" href="l_su_dich_vu.html"><i class="bi bi-clock-history me-3 fs-5"></i> Lịch sử đặt dịch vụ</a>
+                <a class="nav-link" href="danh_gia_dich_vu.html"><i class="bi bi-star me-3 fs-5"></i> Đánh giá dịch vụ</a>
+                <a class="nav-link" href="ai.html"><i class="bi bi-robot me-3 fs-5"></i> Trợ lý AI</a>
+                <a class="nav-link" href="thong_tin_tk.html"><i class="bi bi-gear me-3 fs-5"></i> Cài đặt</a>
+            </nav>
+        </div>
+
+        <!-- Khối quảng cáo góc dưới trái và Thống kê số liệu -->
+        <div>
+            <div class="bg-vanta-yellow p-3 rounded-4 text-dark mb-4">
+                <small class="fw-semibold text-uppercase d-block mb-1" style="font-size: 10px; opacity: 0.8;">Giới thiệu Vanta</small>
+                <h6 class="fw-bold mb-3" style="line-height: 1.4;">Rủ bạn bè<br>Nhận ưu đãi</h6>
+                <a href="#" class="btn btn-dark w-100 btn-sm rounded-3 fw-semibold py-2" style="background-color: #0f172a; font-size: 13px;">Giới thiệu ngay</a>
+            </div>
+            
+            <!-- Thống kê góc dưới -->
+            <div class="row g-2 text-center text-white border-top border-secondary pt-3" style="font-size: 11px; opacity: 0.8;">
+                <div class="row g-0 stats-grid text-center">
+                <div class="col-6 mb-3">
+                    <div class="stat-value">10.000+</div>
+                    <div class="stat-label">Khách hàng</div>
+                </div>
+                <div class="col-6 mb-3">
+                    <div class="stat-value">4.8/5</div>
+                    <div class="stat-label">Đánh giá</div>
+                </div>
+                <div class="col-6">
+                    <div class="stat-value">100+</div>
+                    <div class="stat-label">Dịch vụ</div>
+                </div>
+                <div class="col-6">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Hỗ trợ</div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTAINER NỘI DUNG CHÍNH (BÊN PHẢI) -->
+    <main class="main-content px-4 py-3">
+        
+        <!-- TOPBAR HÌNH 1 (TÌM KIẾM & USER) -->
+        <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-4 shadow-sm">
+            <div class="input-group w-50 bg-light rounded-pill px-3 py-1">
+                <span class="input-group-text bg-transparent border-0"><i class="bi bi-search text-muted"></i></span>
+                <input type="text" class="form-control bg-transparent border-0 shadow-none" style="font-size: 14px;" placeholder="Bạn cần tìm gì hôm nay?">
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="position-relative me-2">
+                    <i class="bi bi-bell fs-5 text-secondary"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-white" style="font-size: 8px; padding: 3px 5px;">2</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="text-end">
+                        <small class="text-muted d-block" style="font-size: 10px;">Xin chào,</small>
+                        <span class="fw-bold text-dark" style="font-size: 14px;">Khải Ái</span>
+                    </div>
+                    <span class="bg-vanta-yellow rounded-circle d-flex align-items-center justify-content-center fw-bold text-dark shadow-sm" style="width: 38px; height: 38px; font-size: 14px;">K</span>
+                    <i class="bi bi-chevron-down text-muted small"></i>
+                </div>
+            </div>
+        </div>
+
+        <section class="mb-5">
+            <div class="row g-0 rounded-5 overflow-hidden shadow-sm bg-white">
+                <!-- Khối Banner màu vàng chính -->
+                <div class="col-lg-7 bg-vanta-yellow p-5 d-flex flex-column justify-content-center text-vanta-dark">
+                    <small class="fw-bold text-uppercase tracking-wider mb-2" style="font-size: 12px; letter-spacing: 1px; opacity: 0.8;">VANTA</small>
+                    <h1 class="fw-bold mb-3 display-6" style="line-height: 1.2; font-size: 38px;">Giúp cuộc sống của bạn<br>dễ dàng hơn mỗi ngày</h1>
+                    <p class="mb-4 opacity-75" style="font-size: 14px; max-width: 90%;">Dịch vụ vệ sinh, giặt ủi, mua sắm, tiện lợi và tin cậy. Chúng tôi giúp bạn tiết kiệm thời gian cho những điều thực sự quan trọng.</p>
+                    <div class="d-flex gap-3">
+                        <a href="dich_vu_home.html" class="btn btn-dark px-4 py-2.5 rounded-3 fw-bold" style="background-color: #451a03; border: none; font-size: 14px;">Đặt ngay</a>
+                        <a href="#" class="btn btn-light px-4 py-2.5 rounded-3 fw-bold text-dark border-0" style="background-color: #fef08a; font-size: 14px;">Tìm hiểu thêm</a>
+                    </div>
+                </div>
+                
+                <!-- Khối hội thoại Vanta AI bên phải -->
+                <div class="col-lg-5 p-4 d-flex align-items-center justify-content-center" style="background: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600') center/cover; min-height: 320px;">
+                    <div class="bg-white p-3 ai-box w-100" style="background-color: rgba(255,255,255,0.96) !important;">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <span class="bg-dark text-white rounded-circle d-inline-flex p-1.5" style="background-color: #451a03 !important;"><i class="bi bi-robot" style="font-size: 14px;"></i></span>
+                            <span class="fw-bold text-dark" style="font-size: 14px;">Vanta AI</span>
+                        </div>
+                        <p class="text-muted fst-italic small mb-3">"Xin chào! Hôm nay bạn cần gì?"</p>
+                        
+                        <div class="d-flex flex-column gap-2">
+                            <a href="dich_vu_giup_viec.html" class="btn btn-outline-light text-start d-flex justify-content-between align-items-center rounded-3 py-2 px-3 text-dark border shadow-sm" style="font-size: 13px;">
+                                <span>🪄 Giúp việc</span> <i class="bi bi-arrow-right text-muted"></i>
+                            </a>
+                            <a href="dich_vu_do_an.html" class="btn btn-outline-light text-start d-flex justify-content-between align-items-center rounded-3 py-2 px-3 text-dark border shadow-sm" style="font-size: 13px;">
+                                <span>🍲 Đặt đồ ăn</span> <i class="bi bi-arrow-right text-muted"></i>
+                            </a>
+                            <a href="dich_vu_di_cho.html" class="btn btn-outline-light text-start d-flex justify-content-between align-items-center rounded-3 py-2 px-3 text-dark border shadow-sm" style="font-size: 13px;">
+                                <span>🛒 Đi chợ</span> <i class="bi bi-arrow-right text-muted"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== HÌNH 2: KHỐI DỊCH VỤ PHỔ BIẾN (SECTION) ==================== -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold text-dark m-0" style="font-size: 26px;">Dịch vụ phổ biến</h3>
+                <a href="dich_vu_home.html" class="text-dark fw-bold text-decoration-none small">Xem tất cả <i class="bi bi-chevron-right ms-1" style="font-size: 12px;"></i></a>
+            </div>
+            
+            <div class="row g-4">
+                <!-- QUY ĐỊNH: Đặt từng khối trong thẻ <article> có đủ <img> (src, alt) và thẻ <a> -->
+                
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <article class="card h-100 card-service position-relative bg-white">
+                        <span class="badge badge-pos rounded-pill fw-bold" style="background-color: #614d03; color: #fff;">PHỔ BIẾN</span>
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=500" class="card-img-top" alt="Dịch vụ Booking giúp việc tại nhà của Vanta" style="height: 190px; object-fit: cover;">
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fw-bold text-dark mb-2" style="font-size: 18px;">Booking giúp việc</h5>
+                                <p class="card-text text-muted" style="font-size: 13px; line-height: 1.5;">Đặt người giúp việc theo giờ hoặc theo ngày chuyên nghiệp, tin cậy.</p>
+                            </div>
+                            <a href="dich_vu_giup_viec.html" class="fw-bold text-decoration-none mt-3 d-inline-flex align-items-center" style="color: #a16207; font-size: 14px;">Đặt ngay <i class="bi bi-chevron-right ms-1" style="font-size: 12px;"></i></a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <article class="card h-100 card-service position-relative bg-white">
+                        <span class="badge bg-success badge-pos rounded-pill fw-bold">MỚI</span>
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500" class="card-img-top" alt="Dịch vụ Đặt đồ ăn trực tuyến từ nhà hàng" style="height: 190px; object-fit: cover;">
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fw-bold text-dark mb-2" style="font-size: 18px;">Đặt đồ ăn</h5>
+                                <p class="card-text text-muted" style="font-size: 13px; line-height: 1.5;">Đặt món từ nhà hàng yêu thích, giao nhanh tại nhà chỉ trong 30 phút.</p>
+                            </div>
+                            <a href="dich_vu_do_an.html" class="fw-bold text-decoration-none mt-3 d-inline-flex align-items-center" style="color: #a16207; font-size: 14px;">Đặt ngay <i class="bi bi-chevron-right ms-1" style="font-size: 12px;"></i></a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <article class="card h-100 card-service position-relative bg-white">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=500" class="card-img-top" alt="Dịch vụ Đi chợ hộ mua sắm thực phẩm tươi sống" style="height: 190px; object-fit: cover;">
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fw-bold text-dark mb-2" style="font-size: 18px;">Đi chợ hộ</h5>
+                                <p class="card-text text-muted" style="font-size: 13px; line-height: 1.5;">Mua rau củ, thực phẩm tươi sống giao tận cửa đảm bảo độ tươi ngon.</p>
+                            </div>
+                            <a href="dich_vu_di_cho.html" class="fw-bold text-decoration-none mt-3 d-inline-flex align-items-center" style="color: #a16207; font-size: 14px;">Đặt ngay <i class="bi bi-chevron-right ms-1" style="font-size: 12px;"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== HÌNH 2 & 3: KHỐI QUY TRÌNH ĐƠN GIẢN (SECTION) ==================== -->
+        <section class="mb-5 bg-white p-5 rounded-4 shadow-sm text-center">
+            <h3 class="fw-bold text-dark mb-1" style="font-size: 26px;">Quy trình đơn giản</h3>
+            <p class="text-muted mb-5" style="font-size: 14px;">Trải nghiệm dịch vụ chỉ với 4 bước nhanh chóng</p>
+            
+            <div class="row process-row">
+                <!-- Bước 1 -->
+                <div class="col-md-3 position-relative">
+                    <div class="step-icon-box bg-vanta-yellow text-dark mb-3">
+                        <i class="bi bi-card-checklist fs-3"></i>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2" style="font-size: 15px;">Chọn dịch vụ</h6>
+                    <p class="text-muted small px-2" style="font-size: 12px;">Hơn 50+ loại dịch vụ đáp ứng mọi nhu cầu.</p>
+                </div>
+                <!-- Bước 2 -->
+                <div class="col-md-3 position-relative">
+                    <div class="step-icon-box bg-light text-secondary mb-3" style="background-color: #eff6ff !important;">
+                        <i class="bi bi-clock fs-3 text-dark-emphasis"></i>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2" style="font-size: 15px;">Lên lịch hẹn</h6>
+                    <p class="text-muted small px-2" style="font-size: 12px;">Chọn thời gian và địa điểm linh hoạt nhất.</p>
+                </div>
+                <!-- Bước 3 -->
+                <div class="col-md-3 position-relative">
+                    <div class="step-icon-box bg-light text-secondary mb-3" style="background-color: #eff6ff !important;">
+                        <i class="bi bi-shield-check fs-3 text-dark-emphasis"></i>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2" style="font-size: 15px;">Xác nhận</h6>
+                    <p class="text-muted small px-2" style="font-size: 12px;">Thanh toán an toàn và nhận thông báo ngay.</p>
+                </div>
+                <!-- Bước 4 -->
+                <div class="col-md-3 position-relative">
+                    <div class="step-icon-box bg-light text-secondary mb-3" style="background-color: #eff6ff !important;">
+                        <i class="bi bi-star fs-3 text-dark-emphasis"></i>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2" style="font-size: 15px;">Đánh giá</h6>
+                    <p class="text-muted small px-2" style="font-size: 12px;">Gửi phản hồi để giúp chúng tôi hoàn thiện hơn.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="row g-4 mb-3">
+            <!-- Khối Vanta Rewards -->
+            <div class="col-lg-6">
+                <div class="p-4 rounded-4 text-white h-100 d-flex flex-column justify-content-between" style="background-color: #1e293b;">
+                    <div>
+                        <h4 class="fw-bold mb-2" style="font-size: 20px;">Vanta Rewards</h4>
+                        <p style="max-width: 85%; line-height: 1.5;">Tích điểm đổi quà cho mỗi lần sử dụng dịch vụ. Tiết kiệm lên đến 20% cho khách hàng thân thiết.</p>
+                    </div>
+                    <a href="#" class="btn btn-dark btn-sm rounded-3 fw-semibold align-self-start px-3 py-2" style="background-color: #3f3f46; border: none; font-size: 13px;">Khám phá ưu đãi</a>
+                </div>
+            </div>
+            
+            <!-- Khối Bảo hiểm 100% -->
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-vanta-yellow p-4 rounded-4 text-center h-100 d-flex flex-column justify-content-center align-items-center text-vanta-dark shadow-sm">
+                    <i class="bi bi-shield-fill-check fs-1 mb-2" style="color: #451a03;"></i>
+                    <h2 class="fw-bold m-0" style="font-size: 28px;">100%</h2>
+                    <p class="fw-semibold small m-0" style="font-size: 12px; opacity: 0.9;">Bảo hiểm dịch vụ</p>
+                </div>
+            </div>
+            
+            <!-- Khối Đối tác -->
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white p-4 rounded-4 text-center h-100 d-flex flex-column justify-content-center align-items-center shadow-sm">
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                        <span class="bg-secondary text-white rounded-circle border border-2 border-white" style="width: 28px; height: 28px; margin-right: -8px; font-size: 10px; line-height: 24px; display: inline-block;"></span>
+                        <span class="bg-primary text-white rounded-circle border border-2 border-white" style="width: 28px; height: 28px; margin-right: -8px; font-size: 10px; line-height: 24px; display: inline-block;"></span>
+                        <span class="bg-success text-white rounded-circle border border-2 border-white" style="width: 28px; height: 28px; font-size: 10px; line-height: 24px; display: inline-block;"></span>
+                    </div>
+                    <h4 class="fw-bold text-dark m-0" style="font-size: 24px;">5.000+</h4>
+                    <p class="text-muted small m-0" style="font-size: 12px;">Đối tác tin cậy</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

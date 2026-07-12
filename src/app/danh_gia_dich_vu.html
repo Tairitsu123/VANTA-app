@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh giá dịch vụ - Vanta</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --vanta-bg-dark: #1e293b;
+            --vanta-yellow: #facc15;
+            --vanta-text-dark: #1e293b;
+            --vanta-btn-dark: #5c4d04;
+        }
+        body { 
+            background-color: #f8f9fa; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #334155;
+        }
+        .sidebar { 
+            background-color: #1e293b; 
+            min-height: 100vh; 
+            color: #94a3b8; 
+            position: fixed;
+            width: 240px;
+            z-index: 100;
+        }
+        .main-content {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+        }
+        .sidebar .nav-link { 
+            color: #94a3b8; 
+            border-radius: 8px; 
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover { 
+            background-color: #2d3748; 
+            color: #fff; 
+        }
+
+        .bg-vanta-yellow { background-color: var(--vanta-yellow); }
+        .text-vanta-dark { color: var(--vanta-text-dark); }
+        .rounded-4 { border-radius: 1rem !important; }
+        
+        .logo-box {
+            width: 56px;
+            height: 56px;
+            background-color: var(--vanta-yellow);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827; 
+        }
+
+        .brand-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 2px !important;
+        }
+
+        .brand-subtitle {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        /* Tabs custom */
+        .nav-tabs-custom {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-tabs-custom .nav-link {
+            border: none;
+            color: #64748b;
+            font-weight: 500;
+            padding: 12px 16px;
+            position: relative;
+            background: transparent;
+        }
+        .nav-tabs-custom .nav-link.active {
+            color: #1e293b;
+            font-weight: 700;
+        }
+        .nav-tabs-custom .nav-link.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+            height: 3px;
+            background-color: var(--vanta-yellow);
+            border-radius: 3px;
+        }
+
+        /* Tỷ lệ phân phối sao */
+        .progress-star {
+            height: 6px;
+            background-color: #f1f5f9;
+            border-radius: 3px;
+        }
+        .progress-star-bar {
+            height: 100%;
+            background-color: var(--vanta-yellow);
+            border-radius: 3px;
+        }
+
+        /* Form Controls tùy biến cho bộ lọc */
+        .form-select-filter {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 14px;
+            padding: 8px 36px 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            width: auto;
+            min-width: 140px;
+        }
+        .form-select-filter:focus {
+            border-color: var(--vanta-yellow);
+            box-shadow: 0 0 0 0.25rem rgba(250, 204, 21, 0.25);
+        }
+
+        /* Đánh giá thẻ */
+        .avatar-review {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: #fef08a;
+            color: #854d0e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .review-img-thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .badge-tag-popular {
+            background-color: #f1f5f9;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid p-0 d-flex">
+    
+    <!-- SIDEBAR -->
+    <header class="sidebar p-3 d-flex flex-column justify-content-between">
+        <div>
+            <div class="d-flex align-items-center ps-1 mb-4">
+                <div class="logo-box me-3">V</div>
+                <div>
+                    <h5 class="m-0 brand-title">Vanta</h5>
+                    <small class="brand-subtitle d-block">LIFE MADE EASIER</small>
+                </div>
+            </div>
+
+            <nav class="nav flex-column gap-1">
+                <a class="nav-link" href="trang_chu.html"><i class="bi bi-house-door-fill me-3 fs-5"></i> Trang chủ</a>
+                <a class="nav-link" href="dich_vu_home.html"><i class="bi bi-briefcase-fill me-3 fs-5"></i> Đặt dịch vụ</a>
+                <a class="nav-link" href="l_su_dich_vu.html"><i class="bi bi-clock-history me-3 fs-5"></i> Lịch sử đặt dịch vụ</a>
+                <a class="nav-link active" href="danh_gia_dich_vu.html"><i class="bi bi-star-fill me-3 fs-5"></i> Đánh giá dịch vụ</a>
+                <a class="nav-link" href="ai.html"><i class="bi bi-robot me-3 fs-5"></i> Trợ lý AI</a>
+                <a class="nav-link" href="thong_tin_tk.html"><i class="bi bi-gear me-3 fs-5"></i> Cài đặt</a>
+            </nav>
+        </div>
+
+        <div>
+            <div class="bg-vanta-yellow p-3 rounded-4 text-dark mb-4">
+                <small class="fw-semibold text-uppercase d-block mb-1" style="font-size: 10px; opacity: 0.8;">Giới thiệu Vanta</small>
+                <h6 class="fw-bold mb-3" style="line-height: 1.4;">Rủ bạn bè<br>Nhận ưu đãi</h6>
+                <button type="button" class="btn btn-dark w-100 btn-sm rounded-3 fw-semibold py-2" style="background-color: #0f172a; font-size: 13px;">Giới thiệu ngay</button>
+            </div>
+            
+            <div class="row g-2 text-center text-white border-top border-secondary pt-3" style="font-size: 11px; opacity: 0.8;">
+                <div class="row g-0 stats-grid text-center">
+                    <div class="col-6 mb-3">
+                        <div class="stat-value">10.000+</div>
+                        <div class="stat-label">Khách hàng</div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="stat-value">4.8/5</div>
+                        <div class="stat-label">Đánh giá</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-value">100+</div>
+                        <div class="stat-label">Dịch vụ</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Hỗ trợ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content px-4 py-3">
+        
+        <!-- TOPBAR TÌM KIẾM VỚI FORM CONTROL -->
+        <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-4 shadow-sm">
+            <div class="input-group w-50 bg-light rounded-pill px-3 py-1">
+                <span class="input-group-text bg-transparent border-0"><i class="bi bi-search text-muted"></i></span>
+                <input type="text" id="search-input" class="form-control bg-transparent border-0 shadow-none" style="font-size: 14px;" placeholder="Bạn cần tìm gì hôm nay?">
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="position-relative me-2">
+                    <i class="bi bi-bell fs-5 text-secondary"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-white" style="font-size: 8px; padding: 3px 5px;">2</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="text-end">
+                        <small class="text-muted d-block" style="font-size: 10px;">Xin chào,</small>
+                        <span class="fw-bold text-dark" style="font-size: 14px;">Khải Ái</span>
+                    </div>
+                    <span class="bg-vanta-yellow rounded-circle d-flex align-items-center justify-content-center fw-bold text-dark shadow-sm" style="width: 38px; height: 38px; font-size: 14px;">K</span>
+                    <i class="bi bi-chevron-down text-muted small"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIÊU ĐỀ TRANG -->
+        <div class="mb-4">
+            <h3 class="fw-bold text-dark mb-1" style="font-size: 26px;">Đánh giá dịch vụ</h3>
+            <p class="text-muted small mb-0">Chia sẻ trải nghiệm để Vanta phục vụ bạn tốt hơn mỗi ngày</p>
+        </div>
+
+        <!-- TABS DIỀU HƯỚNG CHÍNH -->
+        <ul class="nav nav-tabs-custom mb-4">
+            <li class="nav-item">
+                <button type="button" class="nav-link active">Tất cả đánh giá</button>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="nav-link">Đánh giá của tôi</button>
+            </li>
+        </ul>
+
+        <div class="row g-4">
+            <!-- CỘT BÊN TRÁI: DỮ LIỆU ĐÁNH GIÁ -->
+            <section class="col-lg-8">
+                
+                <!-- Bảng tổng quan điểm số -->
+                <div class="bg-white p-4 rounded-4 shadow-sm mb-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center border-end py-2">
+                            <div class="fw-bold text-dark mb-1" style="font-size: 48px; line-height: 1;">4.8</div>
+                            <div class="text-muted small mb-2">/ 5</div>
+                            <div class="text-warning mb-2 fs-5">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <small class="text-muted d-block" style="font-size: 12px;">Dựa trên 1.248 đánh giá</small>
+                        </div>
+                        
+                        <div class="col-md-4 px-4 py-2">
+                            <div class="d-flex align-items-center mb-1 small text-secondary">
+                                <span class="me-2" style="width: 35px;">5 sao</span>
+                                <div class="progress-star flex-grow-1 me-2"><div class="progress-star-bar" style="width: 75%;"></div></div>
+                                <span class="text-end" style="width: 30px;">958</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-1 small text-secondary">
+                                <span class="me-2" style="width: 35px;">4 sao</span>
+                                <div class="progress-star flex-grow-1 me-2"><div class="progress-star-bar" style="width: 18%;"></div></div>
+                                <span class="text-end" style="width: 30px;">221</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-1 small text-secondary">
+                                <span class="me-2" style="width: 35px;">3 sao</span>
+                                <div class="progress-star flex-grow-1 me-2"><div class="progress-star-bar" style="width: 4%;"></div></div>
+                                <span class="text-end" style="width: 30px;">49</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-1 small text-secondary">
+                                <span class="me-2" style="width: 35px;">2 sao</span>
+                                <div class="progress-star flex-grow-1 me-2"><div class="progress-star-bar" style="width: 1%;"></div></div>
+                                <span class="text-end" style="width: 30px;">12</span>
+                            </div>
+                            <div class="d-flex align-items-center small text-secondary">
+                                <span class="me-2" style="width: 35px;">1 sao</span>
+                                <div class="progress-star flex-grow-1 me-2"><div class="progress-star-bar" style="width: 1%;"></div></div>
+                                <span class="text-end" style="width: 30px;">8</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 py-2" style="font-size: 13px;">
+                            <div class="text-muted fw-semibold border-bottom pb-1 mb-2 text-uppercase" style="font-size: 11px; letter-spacing: 0.05em;">Đánh giá theo dịch vụ</div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary">Giúp việc theo giờ</span>
+                                <span class="fw-bold text-dark"><i class="bi bi-star-fill text-warning me-1"></i>4.8</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary">Giúp việc theo ngày</span>
+                                <span class="fw-bold text-dark"><i class="bi bi-star-fill text-warning me-1"></i>4.8</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary">Giúp việc ở lại</span>
+                                <span class="fw-bold text-dark"><i class="bi bi-star-fill text-warning me-1"></i>4.7</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="text-secondary">Đi chợ hộ</span>
+                                <span class="fw-bold text-dark"><i class="bi bi-star-fill text-warning me-1"></i>4.9</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-secondary">Đặt món ăn</span>
+                                <span class="fw-bold text-dark"><i class="bi bi-star-fill text-warning me-1"></i>4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BỘ LỌC CHỨC NĂNG SỬ DỤNG FORM-SELECT CONTROL -->
+                <div class="d-flex gap-2 mb-4">
+                    <select class="form-select form-select-filter" id="select-service">
+                        <option value="all">Tất cả dịch vụ</option>
+                        <option value="giup-viec">Giúp việc theo giờ</option>
+                        <option value="cho-ho">Đi chợ hộ</option>
+                        <option value="mon-an">Đặt món ăn</option>
+                    </select>
+
+                    <select class="form-select form-select-filter" id="select-sort">
+                        <option value="newest">Mới nhất</option>
+                        <option value="oldest">Cũ nhất</option>
+                    </select>
+
+                    <select class="form-select form-select-filter" id="select-star">
+                        <option value="all">Tất cả sao</option>
+                        <option value="5">5 sao</option>
+                        <option value="4">4 sao</option>
+                        <option value="3">3 sao</option>
+                    </select>
+                </div>
+
+                <!-- KHU VỰC CHỨA CÁC BÀI ĐÁNH GIÁ -->
+                <div id="review-container" class="d-flex flex-column gap-3">
+                    <!-- Data kết quả đổ vào đây -->
+                </div>
+                <div id="no-reviews-message" class="text-center py-5 d-none bg-white rounded-4 shadow-sm mt-3">
+                    <i class="bi bi-chat-left-x fs-1 text-muted d-block mb-2"></i>
+                    <span class="text-muted small">Không tìm thấy đánh giá nào phù hợp với bộ lọc.</span>
+                </div>
+
+                <!-- PHÂN TRANG -->
+                <nav class="d-flex justify-content-center mt-4">
+                    <ul class="pagination pagination-sm gap-1 border-0" id="pagination-list">
+                        <!-- Nút đổi trang tự sinh -->
+                    </ul>
+                </nav>
+            </section>
+
+            <!-- CỘT BÊN PHẢI -->
+            <aside class="col-lg-4">
+                <div class="bg-white p-4 rounded-4 shadow-sm text-center mb-4">
+                    <h5 class="fw-bold text-dark mb-3" style="font-size: 16px; text-align: left;">Đánh giá của tôi</h5>
+                    <div class="fw-bold text-dark mb-1" style="font-size: 40px; line-height: 1;">4.9</div>
+                    <div class="text-muted small mb-2">/ 5 • 32 đánh giá</div>
+                    <div class="text-warning mb-3">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <button type="button" class="btn p-0 text-decoration-underline border-0 bg-transparent fw-semibold text-warning-emphasis" style="font-size: 13px;">Xem tất cả đánh giá của tôi</button>
+                </div>
+
+                <div class="bg-white p-4 rounded-4 shadow-sm mb-4">
+                    <h5 class="fw-bold text-dark mb-2" style="font-size: 16px;">Chia sẻ trải nghiệm</h5>
+                    <p class="text-secondary small mb-4" style="line-height: 1.5;">Đánh giá của bạn giúp chúng tôi cải thiện chất lượng dịch vụ mỗi ngày.</p>
+                    <button type="button" class="btn btn-warning w-100 bg-vanta-yellow text-dark border-0 fw-bold py-2.5 rounded-3 shadow-sm d-flex align-items-center justify-content-center gap-2" style="font-size: 14px;">
+                        <i class="bi bi-star"></i> Đánh giá ngay
+                    </button>
+                </div>
+
+                <div class="bg-white p-4 rounded-4 shadow-sm mb-4">
+                    <h5 class="fw-bold text-dark mb-3" style="font-size: 16px;">Danh mục đánh giá phổ biến</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge-tag-popular">Thái độ phục vụ</span>
+                        <span class="badge-tag-popular">Chất lượng công việc</span>
+                        <span class="badge-tag-popular">Đúng giờ</span>
+                        <span class="badge-tag-popular">Kỹ năng chuyên môn</span>
+                        <span class="badge-tag-popular">Giá cả hợp lý</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-4 shadow-sm">
+                    <h5 class="fw-bold text-dark mb-3" style="font-size: 16px;">Quy định đánh giá</h5>
+                    <ul class="text-secondary small ps-3 mb-0" style="line-height: 1.8;">
+                        <li class="mb-1">Đánh giá trung thực, khách quan</li>
+                        <li class="mb-1">Không sử dụng ngôn từ xúc phạm</li>
+                        <li class="mb-1">Không spam, quảng cáo</li>
+                        <li>Vanta có quyền ẩn những đánh giá vi phạm</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const rawReviewsData = [
+        { id: 1, name: "Thanh Trúc", category: "giup-viec", serviceName: "Giúp việc theo giờ", stars: 5, time: "2026-05-20 10:30", code: "GV240520-001", avatar: "TT", content: "Chị Hà dọn dẹp rất sạch sẽ, gọn gàng. Tác phong nhanh nhẹn, thân thiện. Tôi rất hài lòng và sẽ đặt lại dịch vụ.", images: ["https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=150", "https://images.unsplash.com/photo-1563453392212-326f5e854473?q=80&w=150"] },
+        { id: 2, name: "Minh Quân", category: "cho-ho", serviceName: "Đi chợ hộ", stars: 4, time: "2026-05-19 15:45", code: "CH240519-028", avatar: "MQ", content: "Bạn shopper chọn hàng rất kỹ, rau củ quả giao đến tươi ngon và đầy đủ. Rất tiện lợi cho người bận rộn!", images: ["https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=150"] },
+        { id: 3, name: "Khánh An", category: "mon-an", serviceName: "Đặt món ăn", stars: 5, time: "2026-05-18 12:15", code: "AN240518-044", avatar: "KA", content: "Đồ ăn giao tới còn nóng hổi, hộp đóng gói rất cẩn thận sạch sẽ. Shipper thân thiện nhiệt tình.", images: ["https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=150"] },
+        { id: 4, name: "Hoàng Nam", category: "giup-viec", serviceName: "Giúp việc theo giờ", stars: 3, time: "2026-05-15 09:00", code: "GV240515-092", avatar: "HN", content: "Dọn dẹp ở mức tạm ổn, tuy nhiên đến muộn 15 phút so với lịch hẹn đặt trước.", images: [] },
+        { id: 5, name: "Bích Phương", category: "cho-ho", serviceName: "Đi chợ hộ", stars: 5, time: "2026-05-12 16:20", code: "CH240512-011", avatar: "BP", content: "Tuyệt vời, mua đúng các loại gia vị mình yêu cầu dù siêu thị hết hàng đã chủ động gọi điện đổi loại.", images: [] },
+        { id: 6, name: "Tuấn Kiệt", category: "mon-an", serviceName: "Đặt món ăn", stars: 4, time: "2026-05-10 19:30", code: "AN240510-087", avatar: "TK", content: "Món ăn ngon vị đậm đà, nhưng thời gian chuẩn bị của nhà hàng hơi lâu một chút.", images: [] }
+    ];
+
+    let currentFilters = { service: 'all', sort: 'newest', star: 'all' };
+    let currentPage = 1;
+    const itemsPerPage = 2; // Phân tách mỗi trang 2 bài để click test nút chuyển trang rõ ràng
+
+    function renderStarsHTML(count) {
+        let html = '';
+        for(let i=1; i<=5; i++) {
+            html += i <= count ? '<i class="bi bi-star-fill"></i>' : '<i class="bi bi-star text-muted"></i>';
+        }
+        return html;
+    }
+
+    function processAndRender() {
+        let filtered = rawReviewsData.filter(item => {
+            let matchService = currentFilters.service === 'all' || item.category === currentFilters.service;
+            let matchStar = currentFilters.star === 'all' || item.stars == currentFilters.star;
+            return matchService && matchStar;
+        });
+
+        // Xử lý sắp xếp logic: Mới nhất & Cũ nhất
+        if (currentFilters.sort === 'newest') {
+            filtered.sort((a, b) => new Date(b.time) - new Date(a.time));
+        } else if (currentFilters.sort === 'oldest') {
+            filtered.sort((a, b) => new Date(a.time) - new Date(b.time));
+        }
+
+        const totalItems = filtered.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+        
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedItems = filtered.slice(startIndex, endIndex);
+
+        const container = document.getElementById('review-container');
+        const noDataMsg = document.getElementById('no-reviews-message');
+        container.innerHTML = '';
+
+        if (paginatedItems.length === 0) {
+            noDataMsg.classList.remove('d-none');
+        } else {
+            noDataMsg.classList.add('d-none');
+            paginatedItems.forEach(item => {
+                let imagesHTML = '';
+                if(item.images && item.images.length > 0){
+                    imagesHTML = `<div class="d-flex gap-2 mb-3">` + 
+                        item.images.map(img => `<img src="${img}" class="review-img-thumb" alt="Ảnh thực tế">`).join('') + 
+                        `</div>`;
+                }
+
+                container.innerHTML += `
+                    <article class="bg-white p-4 rounded-4 shadow-sm position-relative">
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-3 text-muted" style="font-size: 12px;"></button>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="avatar-review">${item.avatar}</div>
+                            <div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h6 class="fw-bold text-dark mb-0" style="font-size: 15px;">${item.name}</h6>
+                                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill py-0.5 px-2" style="font-size: 10px;"><i class="bi bi-check-circle-fill me-1"></i>Đã xác minh</span>
+                                </div>
+                                <small class="text-muted" style="font-size: 12px;">Đã sử dụng: ${item.serviceName}</small>
+                            </div>
+                        </div>
+                        <div class="text-warning mb-2 small">
+                            ${renderStarsHTML(item.stars)}
+                            <span class="text-dark fw-bold ms-1" style="font-size: 13px;">${item.stars}</span>
+                        </div>
+                        <p class="text-secondary small mb-3" style="line-height: 1.6;">${item.content}</p>
+                        ${imagesHTML}
+                        <div class="d-flex justify-content-between align-items-center border-top pt-3" style="font-size: 12px; color: #94a3b8;">
+                            <span>${item.time} • Mã đơn: ${item.code}</span>
+                            <div class="d-flex gap-3">
+                                <button type="button" class="btn p-0 text-muted border-0 bg-transparent btn-sm" style="font-size: 12px;"><i class="bi bi-hand-thumbs-up me-1"></i>Hữu ích</button>
+                                <button type="button" class="btn p-0 text-muted border-0 bg-transparent btn-sm" style="font-size: 12px;"><i class="bi bi-flag me-1"></i>Báo cáo</button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            });
+        }
+
+        renderPaginationButtons(totalPages);
+    }
+
+    function renderPaginationButtons(totalPages) {
+        const pagList = document.getElementById('pagination-list');
+        pagList.innerHTML = '';
+
+        pagList.innerHTML += `
+            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                <button type="button" class="page-link rounded-3 border-0 text-secondary bg-white p-2" onclick="changePage(${currentPage - 1})"><i class="bi bi-chevron-left"></i></button>
+            </li>
+        `;
+
+        for (let i = 1; i <= totalPages; i++) {
+            pagList.innerHTML += `
+                <li class="page-item">
+                    <button type="button" class="page-link rounded-3 border-0 ${currentPage === i ? 'bg-vanta-yellow text-dark fw-bold' : 'text-dark bg-white'} px-3 py-2" onclick="changePage(${i})">${i}</button>
+                </li>
+            `;
+        }
+
+        pagList.innerHTML += `
+            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                <button type="button" class="page-link rounded-3 border-0 text-secondary bg-white p-2" onclick="changePage(${currentPage + 1})"><i class="bi bi-chevron-right"></i></button>
+            </li>
+        `;
+    }
+
+    function changePage(pageNumber) {
+        currentPage = pageNumber;
+        processAndRender();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("select-service").addEventListener("change", function() {
+            currentFilters.service = this.value;
+            currentPage = 1;
+            processAndRender();
+        });
+
+        document.getElementById("select-sort").addEventListener("change", function() {
+            currentFilters.sort = this.value;
+            currentPage = 1;
+            processAndRender();
+        });
+
+        document.getElementById("select-star").addEventListener("change", function() {
+            currentFilters.star = this.value;
+            currentPage = 1;
+            processAndRender();
+        });
+
+        processAndRender();
+    });
+</script>
+</body>
+</html>

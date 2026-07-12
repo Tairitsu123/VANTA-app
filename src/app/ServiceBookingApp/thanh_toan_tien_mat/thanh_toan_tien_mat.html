@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta - Thanh toán</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../shared.css">
+    <!-- Checkout CSS -->
+    <link rel="stylesheet" href="../xac_nhan_don_hang/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">
+                    <h2>Vanta</h2>
+                    <p>LIFE MADE EASIER</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../dich_vu_home/dich_vu_home.html" class="nav-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Trang chủ</span>
+                </a>
+                
+                <div class="nav-item-group open">
+                    <a href="#" class="nav-item active" id="btn-toggle-service">
+                        <i class="bi bi-briefcase"></i>
+                        <span>Đặt dịch vụ</span>
+                        <i class="bi bi-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <div class="nav-sub-items" id="service-dropdown">
+                        <a href="../dich_vu_giup_viec/dich_vu_giup_viec.html" class="nav-sub-item">Đặt giúp việc</a>
+                        <a href="../dich_vu_do_an/dich_vu_do_an.html" class="nav-sub-item">Đặt món ăn</a>
+                        <a href="../dich_vu_di_cho/dich_vu_di_cho.html" class="nav-sub-item">Đi chợ hộ</a>
+                    </div>
+                </div>
+
+                <a href="../lich_su_dat_dich_vu/lich_su_dat_dich_vu.html" class="nav-item">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Lịch sử đặt dịch vụ</span>
+                </a>
+                <a href="../danh_gia_dich_vu/danh_gia_dich_vu.html" class="nav-item">
+                    <i class="bi bi-star"></i>
+                    <span>Đánh giá dịch vụ</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="promo-box">
+                    <p class="promo-label">GIỚI THIỆU VANTA</p>
+                    <h3>Rủ bạn bè<br>Nhận ưu đãi</h3>
+                    <button class="btn-black" onclick="showAlert('Chức năng giới thiệu bạn bè')">Giới thiệu ngay</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="search-container">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" placeholder="Bạn cần tìm gì hôm nay?">
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn"><i class="bi bi-bell"></i></button>
+                    <div class="user-profile">
+                        <span>Khải AI</span>
+                        <div class="avatar-circle text-dark" style="background:#FDE047;">K</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper bg-light-gray h-100">
+                <div class="checkout-container">
+                    
+                    <!-- Header -->
+                    <div class="checkout-header">
+                        <button class="btn-back" onclick="window.history.back()"><i class="bi bi-chevron-left"></i></button>
+                        <div>
+                            <h1>Thanh toán</h1>
+                            <p class="text-muted text-sm">Đặt món ăn</p>
+                        </div>
+                    </div>
+
+                    <!-- Stepper -->
+                    <div class="checkout-stepper">
+                        <div class="step-pill active" onclick="window.history.back()" style="cursor:pointer">
+                            <span class="step-num">1</span> Chi tiết đơn
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step-pill active">
+                            <span class="step-num">2</span> Thanh toán
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods Card -->
+                    <div class="checkout-card">
+                        <h3 class="card-title">Chọn phương thức thanh toán</h3>
+                        
+                        <div class="payment-methods">
+                            <!-- MoMo -->
+                            <div class="payment-option" onclick="window.location.href='../thanh_toan_momo/thanh_toan_momo.html'">
+                                <div class="pay-icon bg-pink">M</div>
+                                <div class="pay-info">
+                                    <h4>MoMo</h4>
+                                    <p>Ví điện tử MoMo</p>
+                                </div>
+                                <div class="radio-circle"></div>
+                            </div>
+                            
+                            <!-- Visa -->
+                            <div class="payment-option" onclick="window.location.href='../thanh_toan_visa/thanh_toan_visa.html'">
+                                <div class="pay-icon bg-blue"><i class="bi bi-credit-card"></i></div>
+                                <div class="pay-info">
+                                    <h4>Visa ••••4242</h4>
+                                    <p>Thẻ tín dụng</p>
+                                </div>
+                                <div class="radio-circle"></div>
+                            </div>
+
+                            <!-- COD (Active) -->
+                            <div class="payment-option active">
+                                <div class="pay-icon bg-green">COD</div>
+                                <div class="pay-info">
+                                    <h4>Tiền mặt</h4>
+                                    <p>Thanh toán khi nhận hàng/dịch vụ</p>
+                                </div>
+                                <div class="radio-circle active">
+                                    <div class="inner-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coupon Card -->
+                    <div class="checkout-card">
+                        <h3 class="card-title">Mã giảm giá</h3>
+                        <div class="coupon-input">
+                            <input type="text" placeholder="Nhập mã ưu đãi (VD: VANTA20)">
+                            <button class="btn-apply" onclick="showAlert('Đã áp dụng mã giảm giá!')">Áp dụng</button>
+                        </div>
+                    </div>
+
+                    <!-- Cost Card -->
+                    <div class="checkout-card">
+                        <h3 class="card-title">Tổng kết đơn hàng</h3>
+                        <div class="detail-row mb-2">
+                            <span class="text-muted">Tạm tính</span>
+                            <span class="fw-500">185.000đ</span>
+                        </div>
+                        <div class="detail-row mb-4">
+                            <span class="text-muted">Phí dịch vụ</span>
+                            <span class="fw-500">15.000đ</span>
+                        </div>
+                        
+                        <div class="detail-row total-row">
+                            <span class="fw-600 text-lg">Tổng thanh toán</span>
+                            <span class="fw-700 text-yellow text-xl">200.000đ</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <button class="btn-primary-lg" onclick="window.location.href='../thanh_toan_thanh_cong/thanh_toan_thanh_cong.html'">
+                        Thanh toán
+                    </button>
+                    
+                    <div class="secure-text text-center mt-3 text-xs text-muted">
+                        <i class="bi bi-lock-fill"></i> Giao dịch được bảo mật bằng SSL 256-bit
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast / Alert -->
+    <div id="toast" class="toast hidden">
+        <i class="bi bi-info-circle-fill"></i>
+        <span id="toast-message">Thông báo</span>
+    </div>
+
+    <script src="../shared.js"></script>
+</body>
+</html>

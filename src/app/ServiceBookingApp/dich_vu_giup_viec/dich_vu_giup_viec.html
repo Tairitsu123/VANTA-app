@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta - Đặt giúp việc</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../shared.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">
+                    <h2>Vanta</h2>
+                    <p>LIFE MADE EASIER</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../dich_vu_home/dich_vu_home.html" class="nav-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Trang chủ</span>
+                </a>
+                
+                <div class="nav-item-group open">
+                    <a href="#" class="nav-item active" id="btn-toggle-service">
+                        <i class="bi bi-briefcase"></i>
+                        <span>Đặt dịch vụ</span>
+                        <i class="bi bi-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <div class="nav-sub-items" id="service-dropdown">
+                        <a href="dich_vu_giup_viec.html" class="nav-sub-item" style="color:var(--vanta-yellow)">Đặt giúp việc</a>
+                        <a href="../dich_vu_do_an/dich_vu_do_an.html" class="nav-sub-item">Đặt món ăn</a>
+                        <a href="../dich_vu_di_cho/dich_vu_di_cho.html" class="nav-sub-item">Đi chợ hộ</a>
+                    </div>
+                </div>
+
+                <a href="../lich_su_dat_dich_vu/lich_su_dat_dich_vu.html" class="nav-item">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Lịch sử đặt dịch vụ</span>
+                </a>
+                <a href="../danh_gia_dich_vu/danh_gia_dich_vu.html" class="nav-item">
+                    <i class="bi bi-star"></i>
+                    <span>Đánh giá dịch vụ</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="bi bi-robot"></i>
+                    <span>Trợ lý AI</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="bi bi-gear"></i>
+                    <span>Cài đặt</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="promo-box">
+                    <p class="promo-label">GIỚI THIỆU VANTA</p>
+                    <h3>Rủ bạn bè<br>Nhận ưu đãi</h3>
+                    <button class="btn-black" onclick="showAlert('Chức năng giới thiệu bạn bè')">Giới thiệu ngay</button>
+                </div>
+                
+                <!-- Foot stats -->
+                <div class="sidebar-stats">
+                    <div class="stat-row">
+                        <div>
+                            <strong>10.000+</strong>
+                            <p>Khách hàng</p>
+                        </div>
+                        <div>
+                            <strong>4.8/5</strong>
+                            <p>Đánh giá</p>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <div>
+                            <strong>100+</strong>
+                            <p>Dịch vụ</p>
+                        </div>
+                        <div>
+                            <strong>24/7</strong>
+                            <p>Hỗ trợ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="search-container">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" placeholder="Bạn cần tìm gì hôm nay?">
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn"><i class="bi bi-bell"></i></button>
+                    <div class="user-profile">
+                        <span>Khải AI</span>
+                        <div class="avatar-circle">K</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <h1>Đặt giúp việc</h1>
+                    <p class="text-muted">Đặt người giúp việc theo giờ, theo ngày hoặc theo tháng</p>
+                    
+                    <div class="stepper">
+                        <div class="step active">
+                            <span class="step-num">1</span>
+                            <span class="step-label">Chọn người giúp việc</span>
+                        </div>
+                        <i class="bi bi-chevron-right text-muted mx-2"></i>
+                        <div class="step">
+                            <span class="step-num">2</span>
+                            <span class="step-label">Xác nhận thông tin</span>
+                        </div>
+                        <i class="bi bi-chevron-right text-muted mx-2"></i>
+                        <div class="step">
+                            <span class="step-num">3</span>
+                            <span class="step-label">Thanh toán</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-cols-layout">
+                    <!-- Left Column -->
+                    <div class="left-col">
+                        <!-- Section 1 -->
+                        <div class="section-card">
+                            <h3 class="section-title"><span class="badge-num">1</span> Chọn hình thức dịch vụ</h3>
+                            <div class="grid-3">
+                                <div class="option-card active" onclick="selectOption(this)">
+                                    <img src="../images/cleaning.png" style="width:40px;height:40px;object-fit:cover;border-radius:4px;margin-bottom:16px;">
+                                    <h4>Giúp việc theo giờ</h4>
+                                    <p>Đặt giờ linh hoạt theo nhu cầu</p>
+                                    <span class="tag-yellow"><i class="bi bi-check"></i> Đã chọn</span>
+                                </div>
+                                <div class="option-card" onclick="selectOption(this)">
+                                    <img src="../images/cleaning.png" style="width:40px;height:40px;object-fit:cover;border-radius:4px;margin-bottom:16px;">
+                                    <h4>Giúp việc theo ngày</h4>
+                                    <p>Làm việc cả ngày, nhiều hơn 6 giờ</p>
+                                </div>
+                                <div class="option-card" onclick="selectOption(this)">
+                                    <img src="../images/cleaning.png" style="width:40px;height:40px;object-fit:cover;border-radius:4px;margin-bottom:16px;">
+                                    <h4>Giúp việc dài hạn ở lại</h4>
+                                    <p>Thuê người giúp việc theo tháng</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 2 -->
+                        <div class="section-card">
+                            <h3 class="section-title"><span class="badge-num">2</span> Chọn thời gian</h3>
+                            <div class="time-selector">
+                                <label>Chọn số giờ</label>
+                                <div class="hour-buttons">
+                                    <button class="btn-hour">1</button>
+                                    <button class="btn-hour">2</button>
+                                    <button class="btn-hour active">3</button>
+                                    <button class="btn-hour">4</button>
+                                    <button class="btn-hour">5</button>
+                                    <button class="btn-hour">6</button>
+                                    <span style="font-size: 14px; margin-left: 8px;">giờ</span>
+                                </div>
+                            </div>
+                            <div class="date-time-inputs">
+                                <div class="input-group">
+                                    <label><i class="bi bi-calendar"></i> Thời gian bắt đầu</label>
+                                    <input type="date" value="2024-02-01" class="form-control">
+                                </div>
+                                <div class="input-group">
+                                    <label><i class="bi bi-clock"></i> Giờ bắt đầu</label>
+                                    <input type="time" value="09:00" class="form-control">
+                                </div>
+                                <div class="input-group">
+                                    <label>Ghi chú thêm</label>
+                                    <input type="text" placeholder="Thêm ghi chú..." class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 3 -->
+                        <div class="section-card">
+                            <h3 class="section-title"><span class="badge-num">3</span> Địa điểm</h3>
+                            <div class="location-box">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-geo-alt-fill text-yellow"></i>
+                                    <span>123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</span>
+                                </div>
+                                <a href="#" class="text-yellow-link">Thay đổi</a>
+                            </div>
+                        </div>
+
+                        <!-- Section 4 -->
+                        <div class="section-card">
+                            <h3 class="section-title"><span class="badge-num">4</span> Chọn người giúp việc <i class="bi bi-chevron-right ms-auto"></i></h3>
+                            <div class="grid-3">
+                                <div class="option-card text-center active" onclick="selectOption(this)">
+                                    <img src="../images/extracted_1.jpeg" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin:0 auto 12px;">
+                                    <h4>Mỹ Lan</h4>
+                                    <div class="rating-text"><i class="bi bi-star-fill text-yellow"></i> 4.9</div>
+                                    <p class="text-xs">324 việc</p>
+                                    <span class="tag-yellow"><i class="bi bi-check"></i> Đã chọn</span>
+                                </div>
+                                <div class="option-card text-center" onclick="selectOption(this)">
+                                    <img src="../images/extracted_1.jpeg" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin:0 auto 12px;">
+                                    <h4>Kim Hoa</h4>
+                                    <div class="rating-text"><i class="bi bi-star-fill text-yellow"></i> 4.8</div>
+                                    <p class="text-xs">187 việc</p>
+                                </div>
+                                <div class="option-card text-center" onclick="selectOption(this)">
+                                    <img src="../images/extracted_1.jpeg" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin:0 auto 12px;">
+                                    <h4>Thanh Mai</h4>
+                                    <div class="rating-text"><i class="bi bi-star-fill text-yellow"></i> 4.9</div>
+                                    <p class="text-xs">315 việc</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 5 -->
+                        <div class="section-card">
+                            <h3 class="section-title">
+                                <span class="badge-num">5</span> Yêu cầu thêm 
+                                <span class="text-muted fw-normal ms-2 text-sm">+20.000đ/yêu cầu</span>
+                            </h3>
+                            <div class="grid-2-cb">
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> <span>Cần thêm đồ dùng vệ sinh</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> <span>Cần vệ sinh bếp</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> <span>Vệ sinh nhà vệ sinh kỹ</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> <span>Giặt và gấp quần áo</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox"> <span>Lau cửa sổ & kính</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Receipt -->
+                    <div class="right-col">
+                        <div class="receipt-card">
+                            <h3>Thông tin đơn hàng</h3>
+                            
+                            <div class="receipt-row">
+                                <span class="text-muted">Thời gian</span>
+                                <strong>02/01/2024</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="text-muted">Giờ bắt đầu</span>
+                                <strong>09:00</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="text-muted">Thời gian làm việc</span>
+                                <strong>3 giờ</strong>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="text-muted">Địa chỉ</span>
+                                <strong class="text-end" style="max-width:150px">123 Đường Nguyễn Huệ, Q.1</strong>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <div class="receipt-row-col">
+                                <span class="text-muted mb-1">Chi phí liên quan</span>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-sm">Giúp việc theo giờ (3 giờ x 80.000đ)</span>
+                                    <strong>240.000đ</strong>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <div class="receipt-row total">
+                                <span>Tổng cộng</span>
+                                <strong class="text-yellow-lg">240.000đ</strong>
+                            </div>
+
+                            <div class="note-section mt-4">
+                                <label class="text-sm fw-600 mb-2 d-block">Ghi chú thêm</label>
+                                <textarea class="form-control" rows="3" placeholder="Yêu cầu đặc biệt khác..."></textarea>
+                            </div>
+
+                            <button class="btn-secondary w-100 mt-3" onclick="window.location.href='../danh_sach_nguoi_giup_viec/danh_sach_nguoi_giup_viec.html'">Xem danh sách người giúp việc <i class="bi bi-people"></i></button>
+                            <button class="btn-primary w-100 mt-4" onclick="window.location.href='../xac_nhan_don_hang/xac_nhan_don_hang.html'">Tiếp tục đặt lịch <i class="bi bi-chevron-right"></i></button>
+                            <p class="text-center text-xs text-muted mt-2"><i class="bi bi-shield-check"></i> Thanh toán an toàn</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast / Alert (Internal Functionality) -->
+    <div id="toast" class="toast hidden">
+        <i class="bi bi-info-circle-fill"></i>
+        <span id="toast-message">Thông báo</span>
+    </div>
+
+    <script src="../shared.js"></script>
+    <script>
+        function selectOption(el) {
+            const siblings = el.parentElement.children;
+            for (let sibling of siblings) {
+                sibling.classList.remove('active');
+                const tag = sibling.querySelector('.tag-yellow');
+                if(tag) tag.remove();
+            }
+            el.classList.add('active');
+            if(!el.querySelector('.tag-yellow')){
+                el.insertAdjacentHTML('beforeend', '<span class="tag-yellow"><i class="bi bi-check"></i> Đã chọn</span>');
+            }
+        }
+    </script>
+</body>
+</html>

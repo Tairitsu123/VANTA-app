@@ -1,0 +1,120 @@
+/* MoMo QR Section */
+.qr-section {
+    text-align: center;
+}
+
+.qr-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.qr-placeholder {
+    width: 180px;
+    height: 180px;
+    border: 3px solid #BE185D;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 12px;
+}
+
+.qr-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Fake QR grid pattern */
+.qr-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+.qr-block {
+    background: #1a1a1a;
+    border-radius: 2px;
+}
+.qr-block.white {
+    background: white;
+}
+.qr-momo-logo {
+    grid-column: 4 / 6;
+    grid-row: 3 / 5;
+    background: #BE185D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.qr-momo-logo span {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.transfer-info {
+    margin: 16px 0 8px;
+}
+
+.account-tag {
+    display: inline-block;
+    background: #FEF9C3;
+    border: 1px solid #FDE047;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.waiting-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 12px 0 20px;
+}
+
+.dot-blink {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #BE185D;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+.btn-momo-check {
+    width: 100%;
+    background: #BE185D;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.btn-momo-check:hover {
+    opacity: 0.9;
+}
+
+.mb-3 { margin-bottom: 12px; }

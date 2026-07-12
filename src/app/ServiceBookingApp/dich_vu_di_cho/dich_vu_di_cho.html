@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta - Đi chợ hộ</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../shared.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">
+                    <h2>Vanta</h2>
+                    <p>LIFE MADE EASIER</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../dich_vu_home/dich_vu_home.html" class="nav-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Trang chủ</span>
+                </a>
+                
+                <div class="nav-item-group open">
+                    <a href="#" class="nav-item active" id="btn-toggle-service">
+                        <i class="bi bi-briefcase"></i>
+                        <span>Đặt dịch vụ</span>
+                        <i class="bi bi-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <div class="nav-sub-items" id="service-dropdown">
+                        <a href="../dich_vu_giup_viec/dich_vu_giup_viec.html" class="nav-sub-item">Đặt giúp việc</a>
+                        <a href="../dich_vu_do_an/dich_vu_do_an.html" class="nav-sub-item">Đặt món ăn</a>
+                        <a href="dich_vu_di_cho.html" class="nav-sub-item" style="color:var(--vanta-yellow)">Đi chợ hộ</a>
+                    </div>
+                </div>
+
+                <a href="../lich_su_dat_dich_vu/lich_su_dat_dich_vu.html" class="nav-item">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Lịch sử đặt dịch vụ</span>
+                </a>
+                <a href="../danh_gia_dich_vu/danh_gia_dich_vu.html" class="nav-item">
+                    <i class="bi bi-star"></i>
+                    <span>Đánh giá dịch vụ</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="promo-box">
+                    <p class="promo-label">GIỚI THIỆU VANTA</p>
+                    <h3>Rủ bạn bè<br>Nhận ưu đãi</h3>
+                    <button class="btn-black" onclick="showAlert('Chức năng giới thiệu bạn bè')">Giới thiệu ngay</button>
+                </div>
+                
+                <div class="sidebar-stats">
+                    <div class="stat-row">
+                        <div>
+                            <strong>10.000+</strong>
+                            <p>Khách hàng</p>
+                        </div>
+                        <div>
+                            <strong>4.8/5</strong>
+                            <p>Đánh giá</p>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <div>
+                            <strong>100+</strong>
+                            <p>Dịch vụ</p>
+                        </div>
+                        <div>
+                            <strong>24/7</strong>
+                            <p>Hỗ trợ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="search-container">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" placeholder="Bạn cần tìm gì hôm nay?">
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn"><i class="bi bi-bell"></i></button>
+                    <div class="user-profile">
+                        <span>Khải AI</span>
+                        <div class="avatar-circle">K</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper p-0">
+                <div class="two-cols-layout">
+                    <!-- Left Column -->
+                    <div class="left-col p-32">
+                        <div class="page-header mb-4">
+                            <h1>Đi chợ hộ</h1>
+                            <p class="text-muted">Vanta sẽ giúp bạn mua sắm và giao tận nhà nhanh chóng</p>
+                        </div>
+
+                        <!-- Delivery Location -->
+                        <div class="location-banner">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-geo-alt-fill text-yellow"></i>
+                                <span>Giao đến: <strong>123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</strong></span>
+                            </div>
+                            <a href="#" class="text-yellow-link">Thay đổi</a>
+                        </div>
+
+                        <!-- Green Promo Banner -->
+                        <div class="green-promo-banner mb-4">
+                            <div class="promo-text">
+                                <h2>Đi chợ hộ - Tiết kiệm thời gian</h2>
+                                <div class="features-grid mt-3">
+                                    <div class="feature-item"><i class="bi bi-check-square-fill text-green-dark"></i> Chọn hộ theo yêu cầu</div>
+                                    <div class="feature-item"><i class="bi bi-check-square-fill text-green-dark"></i> Giao tận nhà nhanh chóng</div>
+                                    <div class="feature-item"><i class="bi bi-check-square-fill text-green-dark"></i> Mua hàng tươi ngon</div>
+                                    <div class="feature-item"><i class="bi bi-check-square-fill text-green-dark"></i> Hỗ trợ 24/7</div>
+                                </div>
+                            </div>
+                            <div class="promo-img-icon"><i class="bi bi-cart"></i></div>
+                        </div>
+
+                        <!-- Category Pills -->
+                        <div class="category-pills">
+                            <button class="pill active">Tất cả</button>
+                            <button class="pill">Rau củ</button>
+                            <button class="pill">Thịt cá</button>
+                            <button class="pill">Trứng sữa</button>
+                            <button class="pill">Gạo mì</button>
+                            <button class="pill">Gia vị</button>
+                            <button class="pill">Đồ khô</button>
+                        </div>
+
+                        <!-- Products Header -->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3>Danh sách sản phẩm</h3>
+                            <div class="d-flex gap-2">
+                                <div class="search-sm">
+                                    <i class="bi bi-search"></i>
+                                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                                </div>
+                                <button class="btn-filter bg-white">Sắp xếp: Phổ biến <i class="bi bi-chevron-down"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Product Grid -->
+                        <div class="product-grid">
+                            <!-- Product 1 -->
+                            <div class="product-card">
+                                <img src="../images/extracted_6.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                                <div class="product-info">
+                                    <h4>Cà chua Đà Lạt</h4>
+                                    <p class="text-muted text-xs">500g</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <span class="price-yellow">15.000đ</span>
+                                        <button class="btn-add"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 2 -->
+                            <div class="product-card">
+                                <img src="../images/extracted_6.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                                <div class="product-info">
+                                    <h4>Rau cải ngọt</h4>
+                                    <p class="text-muted text-xs">300g</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <span class="price-yellow">12.000đ</span>
+                                        <button class="btn-add"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 3 -->
+                            <div class="product-card">
+                                <img src="../images/extracted_6.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                                <div class="product-info">
+                                    <h4>Thịt ba chỉ heo</h4>
+                                    <p class="text-muted text-xs">500g</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <span class="price-yellow">105.000đ</span>
+                                        <button class="btn-add"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 4 -->
+                            <div class="product-card">
+                                <img src="../images/extracted_6.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                                <div class="product-info">
+                                    <h4>Cá hồi phi lê</h4>
+                                    <p class="text-muted text-xs">500g</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <span class="price-yellow">85.000đ</span>
+                                        <button class="btn-add"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 5 -->
+                            <div class="product-card">
+                                <img src="../images/extracted_6.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                                <div class="product-info">
+                                    <h4>Trứng gà (10 trứng)</h4>
+                                    <p class="text-muted text-xs">Hộp</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <span class="price-yellow">30.000đ</span>
+                                        <button class="btn-add"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 6 -->
+                            <div class="product-card">
+                                <img src="../images/extracted_6.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                                <div class="product-info">
+                                    <h4>Sữa tươi Vinamilk</h4>
+                                    <p class="text-muted text-xs">1 lít</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <span class="price-yellow">38.500đ</span>
+                                        <button class="btn-add"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 7 -->
+                            <div class="product-card">
+                                <img src="../images/extracted_6.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                                <div class="product-info">
+                                    <h4>Gạo ST25</h4>
+                                    <p class="text-muted text-xs">5kg</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <span class="price-yellow">150.000đ</span>
+                                        <button class="btn-add"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product 8 -->
+                            <div class="product-card">
+                                <img src="../images/extracted_6.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                                <div class="product-info">
+                                    <h4>Nước mắm Chinsu</h4>
+                                    <p class="text-muted text-xs">500ml</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <span class="price-yellow">32.000đ</span>
+                                        <button class="btn-add"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Stats Row -->
+                        <div class="trust-stats-row mt-4">
+                            <div class="trust-stat">
+                                <i class="bi bi-shield-check"></i>
+                                <div>
+                                    <h5>Người đi chợ cẩn thận</h5>
+                                    <p>Chọn hàng tươi ngon</p>
+                                </div>
+                            </div>
+                            <div class="trust-stat">
+                                <i class="bi bi-cash"></i>
+                                <div>
+                                    <h5>Giá cả minh bạch</h5>
+                                    <p>Theo giá thị trường</p>
+                                </div>
+                            </div>
+                            <div class="trust-stat">
+                                <i class="bi bi-receipt"></i>
+                                <div>
+                                    <h5>Hóa đơn đầy đủ</h5>
+                                    <p>Gửi cùng đơn hàng</p>
+                                </div>
+                            </div>
+                            <div class="trust-stat">
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                                <div>
+                                    <h5>Hoàn tiền 100%</h5>
+                                    <p>Nếu có vấn đề chất lượng</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Cart -->
+                    <div class="right-col-cart">
+                        <div class="cart-header">
+                            <h3>Đơn hàng của bạn (3)</h3>
+                            <a href="#" class="text-danger text-xs text-decoration-none">Xóa tất cả</a>
+                        </div>
+                        
+                        <div class="cart-items">
+                            <div class="cart-item">
+                                <img src="../images/extracted_7.jpeg" style="width:48px;height:48px;border-radius:8px;object-fit:cover;">
+                                <div class="item-details">
+                                    <h5>Cà chua Đà Lạt</h5>
+                                    <p class="text-xs text-muted">500g</p>
+                                    <strong class="text-yellow-lg mt-1 d-block">15.000đ</strong>
+                                </div>
+                                <div class="stepper-input">
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </div>
+                            </div>
+                            <div class="cart-item">
+                                <img src="../images/extracted_7.jpeg" style="width:48px;height:48px;border-radius:8px;object-fit:cover;">
+                                <div class="item-details">
+                                    <h5>Thịt ba chỉ heo</h5>
+                                    <p class="text-xs text-muted">500g</p>
+                                    <strong class="text-yellow-lg mt-1 d-block">105.000đ</strong>
+                                </div>
+                                <div class="stepper-input">
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </div>
+                            </div>
+                            <div class="cart-item">
+                                <img src="../images/extracted_7.jpeg" style="width:48px;height:48px;border-radius:8px;object-fit:cover;">
+                                <div class="item-details">
+                                    <h5>Sữa tươi Vinamilk</h5>
+                                    <p class="text-xs text-muted">1 lít</p>
+                                    <strong class="text-yellow-lg mt-1 d-block">38.500đ</strong>
+                                </div>
+                                <div class="stepper-input">
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="note-section mt-4">
+                            <label class="text-sm fw-600 mb-2 d-block">Ghi chú cho người đi chợ</label>
+                            <textarea class="form-control bg-light" rows="3" placeholder="Ví dụ: Chọn cà chua chín vừa, không dập..."></textarea>
+                        </div>
+
+                        <div class="cart-summary mt-auto">
+                            <div class="summary-row">
+                                <span class="text-muted">Tạm tính</span>
+                                <strong>158.500đ</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span class="text-muted">Phí đi chợ hộ</span>
+                                <strong>15.000đ</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span class="text-muted">Phí giao hàng</span>
+                                <strong>15.000đ</strong>
+                            </div>
+                            
+                            <div class="promo-input-group my-3">
+                                <input type="text" placeholder="Nhập mã giảm giá" class="form-control">
+                                <button class="btn-apply">Áp dụng</button>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <div class="summary-row total">
+                                <span>Tổng thanh toán</span>
+                                <strong class="text-red-lg">188.500đ</strong>
+                            </div>
+
+                            <button class="btn-primary w-100 mt-4" onclick="window.location.href='../xac_nhan_don_hang/xac_nhan_don_hang.html'">Tiến hành thanh toán <i class="bi bi-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast / Alert -->
+    <div id="toast" class="toast hidden">
+        <i class="bi bi-info-circle-fill"></i>
+        <span id="toast-message">Thông báo</span>
+    </div>
+
+    <script src="../shared.js"></script>
+</body>
+</html>

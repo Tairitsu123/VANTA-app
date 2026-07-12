@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta - Lịch sử đặt dịch vụ</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../shared.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">
+                    <h2>Vanta</h2>
+                    <p>LIFE MADE EASIER</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../dich_vu_home/dich_vu_home.html" class="nav-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Trang chủ</span>
+                </a>
+                
+                <div class="nav-item-group">
+                    <a href="#" class="nav-item" id="btn-toggle-service">
+                        <i class="bi bi-briefcase"></i>
+                        <span>Đặt dịch vụ</span>
+                        <i class="bi bi-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <div class="nav-sub-items" id="service-dropdown">
+                        <a href="../dich_vu_giup_viec/dich_vu_giup_viec.html" class="nav-sub-item">Đặt giúp việc</a>
+                        <a href="../dich_vu_do_an/dich_vu_do_an.html" class="nav-sub-item">Đặt món ăn</a>
+                        <a href="../dich_vu_di_cho/dich_vu_di_cho.html" class="nav-sub-item">Đi chợ hộ</a>
+                    </div>
+                </div>
+
+                <a href="lich_su_dat_dich_vu.html" class="nav-item active">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Lịch sử đặt dịch vụ</span>
+                </a>
+                <a href="../danh_gia_dich_vu/danh_gia_dich_vu.html" class="nav-item">
+                    <i class="bi bi-star"></i>
+                    <span>Đánh giá dịch vụ</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="bi bi-robot"></i>
+                    <span>Trợ lý AI</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="bi bi-gear"></i>
+                    <span>Cài đặt</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="promo-box">
+                    <p class="promo-label">GIỚI THIỆU VANTA</p>
+                    <h3>Rủ bạn bè<br>Nhận ưu đãi</h3>
+                    <button class="btn-black" onclick="showAlert('Chức năng giới thiệu bạn bè')">Giới thiệu ngay</button>
+                </div>
+                
+                <div class="sidebar-stats">
+                    <div class="stat-row">
+                        <div>
+                            <strong>10.000+</strong>
+                            <p>Khách hàng</p>
+                        </div>
+                        <div>
+                            <strong>4.8/5</strong>
+                            <p>Đánh giá</p>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <div>
+                            <strong>100+</strong>
+                            <p>Dịch vụ</p>
+                        </div>
+                        <div>
+                            <strong>24/7</strong>
+                            <p>Hỗ trợ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="search-container">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" placeholder="Bạn cần tìm gì hôm nay?">
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn"><i class="bi bi-bell"></i></button>
+                    <div class="user-profile">
+                        <span>Khải AI</span>
+                        <div class="avatar-circle">K</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper p-32">
+                <div class="page-header mb-4">
+                    <h1>Lịch sử đặt dịch vụ</h1>
+                    <p class="text-muted">Quản lý và theo dõi tất cả các đơn hàng, dịch vụ bạn đã đặt</p>
+                </div>
+
+                <div class="two-cols-layout">
+                    <!-- Left Column -->
+                    <div class="left-col">
+                        <!-- Tabs -->
+                        <div class="category-pills mb-3">
+                            <button class="pill active">Tất cả</button>
+                            <button class="pill">Đặt dịch vụ giúp việc</button>
+                            <button class="pill">Đặt món ăn</button>
+                            <button class="pill">Đi chợ hộ</button>
+                        </div>
+
+                        <!-- Filters -->
+                        <div class="filters-row mb-4">
+                            <button class="btn-filter"><i class="bi bi-calendar"></i> Chọn thời gian</button>
+                            <button class="btn-filter"><i class="bi bi-funnel"></i> Lọc trạng thái</button>
+                        </div>
+
+                        <!-- Order List -->
+                        <div class="order-list">
+                            <!-- Order 1 -->
+                            <div class="order-card">
+                                <img src="../images/extracted_8.jpeg" style="width:64px;height:64px;border-radius:8px;object-fit:cover;">
+                                <div class="order-info">
+                                    <h4>Dịch vụ giúp việc theo giờ</h4>
+                                    <p class="text-xs text-muted mb-1">Mã đơn: SV340920-001 <br> 20/05/2024, 09:00 - 12:00 (3 giờ)</p>
+                                    <p class="text-xs text-muted"><i class="bi bi-geo-alt"></i> 123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+                                </div>
+                                <div class="order-status-col text-end">
+                                    <strong class="price">240.000đ</strong>
+                                    <p class="status text-green"><span class="dot bg-green"></span> Đã hoàn thành</p>
+                                    <button class="btn-outline-sm mt-auto" onclick="showAlert('Xem chi tiết đơn hàng')">Chi tiết <i class="bi bi-chevron-right"></i></button>
+                                </div>
+                            </div>
+                            
+                            <!-- Order 2 -->
+                            <div class="order-card">
+                                <img src="../images/extracted_8.jpeg" style="width:64px;height:64px;border-radius:8px;object-fit:cover;">
+                                <div class="order-info">
+                                    <h4>Phở bò đặc biệt</h4>
+                                    <p class="text-xs text-muted mb-1">Mã đơn: AN240519-038 <br> 19/05/2024, 11:30</p>
+                                    <p class="text-xs text-muted"><i class="bi bi-geo-alt"></i> 123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+                                </div>
+                                <div class="order-status-col text-end">
+                                    <strong class="price">85.000đ</strong>
+                                    <p class="status text-blue"><span class="dot bg-blue"></span> Đang giao hàng</p>
+                                    <button class="btn-outline-sm mt-auto" onclick="showAlert('Xem chi tiết đơn hàng')">Chi tiết <i class="bi bi-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Order 3 -->
+                            <div class="order-card">
+                                <img src="../images/extracted_8.jpeg" style="width:64px;height:64px;border-radius:8px;object-fit:cover;">
+                                <div class="order-info">
+                                    <h4>Đi chợ hộ</h4>
+                                    <p class="text-xs text-muted mb-1">Mã đơn: CH240518-015 <br> 18/05/2024, 08:15</p>
+                                    <p class="text-xs text-muted"><i class="bi bi-geo-alt"></i> 123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+                                </div>
+                                <div class="order-status-col text-end">
+                                    <strong class="price">181.500đ</strong>
+                                    <p class="status text-green"><span class="dot bg-green"></span> Đã hoàn thành</p>
+                                    <button class="btn-outline-sm mt-auto" onclick="showAlert('Xem chi tiết đơn hàng')">Chi tiết <i class="bi bi-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Order 4 -->
+                            <div class="order-card">
+                                <img src="../images/extracted_8.jpeg" style="width:64px;height:64px;border-radius:8px;object-fit:cover;">
+                                <div class="order-info">
+                                    <h4>Dịch vụ giúp việc theo giờ</h4>
+                                    <p class="text-xs text-muted mb-1">Mã đơn: SV240517-010 <br> 17/05/2024, 14:00 - 16:00 (2 giờ)</p>
+                                    <p class="text-xs text-muted"><i class="bi bi-geo-alt"></i> 123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+                                </div>
+                                <div class="order-status-col text-end">
+                                    <strong class="price">140.000đ</strong>
+                                    <p class="status text-red"><span class="dot bg-red"></span> Đã hủy</p>
+                                    <button class="btn-outline-sm mt-auto" onclick="showAlert('Xem chi tiết đơn hàng')">Chi tiết <i class="bi bi-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Order 5 -->
+                            <div class="order-card">
+                                <img src="../images/extracted_8.jpeg" style="width:64px;height:64px;border-radius:8px;object-fit:cover;">
+                                <div class="order-info">
+                                    <h4>Pizza 4P's</h4>
+                                    <p class="text-xs text-muted mb-1">Mã đơn: AN240516-007 <br> 16/05/2024, 19:00</p>
+                                    <p class="text-xs text-muted"><i class="bi bi-geo-alt"></i> 123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+                                </div>
+                                <div class="order-status-col text-end">
+                                    <strong class="price">190.000đ</strong>
+                                    <p class="status text-yellow-status"><span class="dot bg-yellow"></span> Đang giao hàng</p>
+                                    <button class="btn-outline-sm mt-auto" onclick="showAlert('Xem chi tiết đơn hàng')">Chi tiết <i class="bi bi-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="page-btn"><i class="bi bi-chevron-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <span class="page-dots">...</span>
+                            <button class="page-btn">10</button>
+                            <button class="page-btn"><i class="bi bi-chevron-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Stats -->
+                    <div class="right-col-side">
+                        <!-- Overview Card -->
+                        <div class="side-card">
+                            <h3>Tổng quan đơn hàng</h3>
+                            
+                            <div class="overview-row mt-4">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="square-red"></div> <span>Tổng đơn hàng</span>
+                                </div>
+                                <strong>32</strong>
+                            </div>
+                            <div class="overview-row">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="square-green"></div> <span>Đã hoàn thành</span>
+                                </div>
+                                <strong class="text-green">25</strong>
+                            </div>
+                            <div class="overview-row">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="square-yellow"></div> <span>Đang xử lý</span>
+                                </div>
+                                <strong class="text-yellow-status">3</strong>
+                            </div>
+                            <div class="overview-row">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="square-red"></div> <span>Đã hủy</span>
+                                </div>
+                                <strong class="text-red">4</strong>
+                            </div>
+
+                            <button class="btn-outline w-100 mt-4"><i class="bi bi-download"></i> Xuất lịch sử đơn hàng</button>
+                        </div>
+
+                        <!-- Support Card -->
+                        <div class="side-card mt-4">
+                            <h3 class="mb-2">Bạn cần hỗ trợ?</h3>
+                            <p class="text-sm text-muted mb-4">Đội ngũ chăm sóc khách hàng luôn sẵn sàng hỗ trợ bạn 24/7</p>
+                            <button class="btn-primary w-100" onclick="showAlert('Đang kết nối nhân viên hỗ trợ...')">Liên hệ ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast / Alert -->
+    <div id="toast" class="toast hidden">
+        <i class="bi bi-info-circle-fill"></i>
+        <span id="toast-message">Thông báo</span>
+    </div>
+
+    <script src="../shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta - Đăng ký tài khoản</title>
+    
+    <!-- TÍCH HỢP BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font chữ Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #f5c518;
+            --bg-dark: #121824;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* --- STYLES CỘT TRÁI --- */
+        .left-panel {
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at top right, rgba(245, 197, 24, 0.15), transparent 60%);
+        }
+
+        .feature-card {
+            background-color: #1f293d;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            max-width: 450px;
+        }
+
+        .feature-card i { color: var(--primary-color); }
+
+        .avatar-group img {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--bg-dark);
+            margin-left: -10px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .avatar-group img:first-child { margin-left: 0; }
+
+        /* --- XỬ LÝ NÚT CHỌN ROLE (CHỈ CHỌN 1 TRONG 2) --- */
+        .role-option input[type="radio"] {
+            display: none; /* Ẩn nút radio mặc định */
+        }
+
+        .role-option label {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            background-color: #fff;
+        }
+
+        /* Trạng thái khi được chọn */
+        .role-option input[type="radio"]:checked + label {
+            border-color: #f59e0b;
+            background-color: #fefbeb;
+            color: #b45309;
+        }
+
+        /* Xử lý ẩn/hiện Icon tương ứng */
+        .role-option .icon-checked { display: none; color: #b45309; }
+        .role-option .icon-unchecked { display: inline-block; color: #6b7280; }
+        
+        .role-option input[type="radio"]:checked + label .icon-checked { display: inline-block; }
+        .role-option input[type="radio"]:checked + label .icon-unchecked { display: none; }
+
+        /* --- TÙY CHỈNH INPUT BOOTSTRAP CHO GIỐNG DESIGN --- */
+        .input-group-text {
+            background-color: #f3f4f6;
+            border: 1px solid transparent;
+            border-right: none;
+            color: #9ca3af;
+        }
+        
+        .form-control {
+            background-color: #f3f4f6;
+            border: 1px solid transparent;
+            border-left: none;
+            padding: 12px 14px 12px 0;
+        }
+
+        /* Hiệu ứng khi focus vào ô input */
+        .form-control:focus {
+            background-color: #ffffff;
+            border-color: #d1d5db;
+            box-shadow: 0 0 0 4px rgba(0,0,0,0.02);
+        }
+        .input-group:focus-within .input-group-text,
+        .input-group:focus-within .form-control {
+            background-color: #ffffff;
+            border-color: #d1d5db;
+        }
+
+        .toggle-password { cursor: pointer; border-left: none;}
+        .toggle-password:hover i { color: #6b7280; }
+
+        /* --- NÚT SUBMIT --- */
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: #1e1b4b;
+            padding: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            border: none;
+            transition: background-color 0.2s;
+        }
+        .btn-submit:hover { background-color: #e0b410; }
+        
+        .form-label { font-size: 13px; font-weight: 600; color: #1f2937; }
+        .text-muted-custom { color: #6b7280; font-size: 13px; }
+        .text-brand { color: #b45309; text-decoration: none; font-weight: 600; }
+        
+        /* Hiệu ứng gạch chân khi hover cho link */
+        .text-brand:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SỬ DỤNG LƯỚI BOOTSTRAP: row & col -->
+    <div class="container-fluid min-vh-100 d-flex flex-column flex-lg-row p-0">
+        
+        <!-- CỘT TRÁI (4 Cột Bootstrap trên màn to) -->
+        <div class="col-lg-4 left-panel text-white p-5 d-flex flex-column justify-content-between">
+            <div class="brand">
+                <h1 class="fw-bold mb-3">Vanta</h1>
+                <p class="text-secondary" style="font-size: 15px;">Life made easier with smart service solutions at your fingertips.</p>
+                
+                <div class="feature-card p-4 mt-5">
+                    <i class="fa-solid fa-shield-halved fs-4 mb-3"></i>
+                    <h3 class="h6 fw-bold">Professional & Secure</h3>
+                    <p class="text-secondary mb-0" style="font-size: 14px;">Every service provider is verified to ensure your peace of mind and safety.</p>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="avatar-group d-flex">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" alt="user">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=60" alt="user">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=60" alt="user">
+                    </div>
+                    <span class="text-light" style="font-size: 14px;">+2.5k Trust Users</span>
+                </div>
+                <div class="text-secondary" style="font-size: 13px;">
+                    © 2024 Vanta Platform. All rights reserved.
+                </div>
+            </div>
+        </div>
+
+        <!-- CỘT PHẢI - FORM (8 Cột Bootstrap trên màn to) -->
+        <div class="col-lg-8 p-4 p-md-5 d-flex align-items-center justify-content-center">
+            <div class="w-100" style="max-width: 520px;">
+                <div class="mb-4">
+                    <h2 class="fw-bold text-dark">Bắt đầu ngay</h2>
+                    <p class="text-secondary">Tạo tài khoản để trải nghiệm dịch vụ tiện ích từ Vanta.</p>
+                </div>
+
+                <form action="#">
+                    <!-- Chọn Role (Chỉ cho phép chọn 1 trong 2) -->
+                    <label class="form-label">Bạn là ai?</label>
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="role-option w-50">
+                            <!-- Cùng name="role" nên tự động loại trừ nhau -->
+                            <input type="radio" id="role-user" name="role" checked>
+                            <label for="role-user" class="w-100 d-flex align-items-center justify-content-center gap-2 py-3 px-2">
+                                <i class="fa-regular fa-circle icon-unchecked"></i>
+                                <i class="fa-solid fa-circle-dot icon-checked"></i>
+                                Người dùng
+                            </label>
+                        </div>
+                        <div class="role-option w-50">
+                            <input type="radio" id="role-admin" name="role">
+                            <label for="role-admin" class="w-100 d-flex align-items-center justify-content-center gap-2 py-3 px-2">
+                                <i class="fa-regular fa-circle icon-unchecked"></i>
+                                <i class="fa-solid fa-circle-dot icon-checked"></i>
+                                Quản trị viên
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Họ và tên -->
+                    <div class="mb-3">
+                        <label class="form-label">Họ và tên</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                            <input type="text" class="form-control" placeholder="Nguyễn Văn A" required>
+                        </div>
+                    </div>
+
+                    <!-- Email và Số điện thoại (Sử dụng Row của Bootstrap) -->
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="example@vanta.com" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Số điện thoại</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                <input type="tel" class="form-control" placeholder="0901 234 567" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mật khẩu -->
+                    <div class="mb-3">
+                        <label class="form-label">Mật khẩu</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <span class="input-group-text toggle-password"><i class="fa-regular fa-eye-slash"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Xác nhận mật khẩu -->
+                    <div class="mb-4">
+                        <label class="form-label">Xác nhận mật khẩu</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-lock-open"></i></span>
+                            <input type="password" class="form-control" placeholder="••••••••" required>
+                            <span class="input-group-text toggle-password"><i class="fa-regular fa-eye-slash"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Điều khoản -->
+                    <div class="form-check mb-4 d-flex align-items-start gap-2">
+                        <input class="form-check-input mt-1" type="checkbox" id="terms" required>
+                        <label class="form-check-label text-muted-custom" for="terms">
+                            Tôi đồng ý với <a href="#" class="text-brand">Điều khoản dịch vụ</a> và <a href="#" class="text-brand">Chính sách bảo mật</a> của Vanta.
+                        </label>
+                    </div>
+
+                    <!-- Nút Submit -->
+                    <button type="submit" class="btn btn-submit w-100">Đăng ký ngay</button>
+
+                    <!-- Chuyển hướng -->
+                    <div class="text-center mt-4 text-muted-custom">
+                        Đã có tài khoản? <a href="index.html" class="text-brand">Đăng nhập ngay</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JS Xử lý ẩn/hiện mật khẩu (Cập nhật cho cấu trúc DOM mới) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleIcons = document.querySelectorAll('.toggle-password');
+
+            toggleIcons.forEach(iconSpan => {
+                iconSpan.addEventListener('click', function() {
+                    // Lấy thẻ input (thẻ anh em ngay trước span)
+                    const input = this.previousElementSibling;
+                    const icon = this.querySelector('i');
+
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    } else {
+                        input.type = 'password';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

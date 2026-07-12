@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trợ lý AI - Vanta</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --vanta-bg-dark: #1e293b;
+            --vanta-yellow: #facc15;
+            --vanta-text-dark: #1e293b;
+            --vanta-btn-dark: #5c4d04;
+        }
+        body { 
+            background-color: #f8f9fa; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #334155;
+        }
+        .sidebar { 
+            background-color: #1e293b; 
+            min-height: 100vh; 
+            color: #94a3b8; 
+            position: fixed;
+            width: 240px;
+            z-index: 100;
+        }
+        .main-content {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+        }
+        .sidebar .nav-link { 
+            color: #94a3b8; 
+            border-radius: 8px; 
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar .nav-link.active, .sidebar .nav-link:hover { 
+            background-color: #2d3748; 
+            color: #fff; 
+        }
+
+        .bg-vanta-yellow { background-color: var(--vanta-yellow); }
+        .text-vanta-dark { color: var(--vanta-text-dark); }
+        .rounded-4 { border-radius: 1rem !important; }
+        .rounded-5 { border-radius: 1.5rem !important; }
+
+        .logo-box {
+            width: 56px;
+            height: 56px;
+            background-color: var(--vanta-yellow);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #111827; 
+        }
+
+        .brand-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 2px !important;
+        }
+
+        .brand-subtitle {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        .dashboard-container {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .stat-card {
+            background-color: #f8fafc;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: none;
+        }
+        .chat-sidebar {
+            background-color: #ffffff;
+            border-left: 1px solid #e2e8f0;
+            min-height: calc(100vh - 90px);
+            display: flex;
+            flex-column;
+            justify-content: space-between;
+        }
+        .chat-bubble-user {
+            background-color: #facc15;
+            color: #1e293b;
+            border-radius: 1rem 1rem 0 1rem;
+            padding: 0.75rem 1rem;
+            font-size: 13px;
+            max-width: 85%;
+            margin-left: auto;
+            font-weight: 500;
+        }
+        .chat-bubble-ai {
+            background-color: #f1f5f9;
+            color: #334155;
+            border-radius: 1rem 1rem 1rem 0;
+            padding: 0.75rem 1rem;
+            font-size: 13px;
+            max-width: 85%;
+        }
+        .chat-input-box {
+            border: 1px solid #e2e8f0;
+            border-radius: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid p-0 d-flex">
+    
+    <header class="sidebar p-3 d-flex flex-column justify-content-between">
+        <div>
+            <!-- Logo Vanta -->
+            <div class="d-flex align-items-center ps-1 mb-4">
+                <div class="logo-box me-3">V</div>
+                <div>
+                    <h5 class="m-0 brand-title">Vanta</h5>
+                    <small class="brand-subtitle d-block">LIFE MADE EASIER</small>
+                </div>
+            </div>
+
+            <nav class="nav flex-column gap-1">
+                <a class="nav-link" href="trang_chu.html"><i class="bi bi-house-door-fill me-3 fs-5"></i> Trang chủ</a>
+                <a class="nav-link" href="dich_vu_home.html"><i class="bi bi-briefcase-fill me-3 fs-5"></i> Đặt dịch vụ</a>
+                <a class="nav-link" href="l_su_dich_vu.html"><i class="bi bi-clock-history me-3 fs-5"></i> Lịch sử đặt dịch vụ</a>
+                <a class="nav-link" href="danh_gia_dich_vu.html"><i class="bi bi-star me-3 fs-5"></i> Đánh giá dịch vụ</a>
+                <a class="nav-link active" href="ai.html"><i class="bi bi-robot me-3 fs-5"></i> Trợ lý AI</a>
+                <a class="nav-link" href="thong_tin_tk.html"><i class="bi bi-gear me-3 fs-5"></i> Cài đặt</a>
+            </nav>
+        </div>
+
+        <!-- Khối quảng cáo góc dưới trái và Thống kê số liệu -->
+        <div>
+            <div class="bg-vanta-yellow p-3 rounded-4 text-dark mb-4">
+                <small class="fw-semibold text-uppercase d-block mb-1" style="font-size: 10px; opacity: 0.8;">Giới thiệu Vanta</small>
+                <h6 class="fw-bold mb-3" style="line-height: 1.4;">Rủ bạn bè<br>Nhận ưu đãi</h6>
+                <a href="#" class="btn btn-dark w-100 btn-sm rounded-3 fw-semibold py-2" style="background-color: #0f172a; font-size: 13px;">Giới thiệu ngay</a>
+            </div>
+            
+            <!-- Thống kê góc dưới -->
+            <div class="row g-2 text-center text-white border-top border-secondary pt-3" style="font-size: 11px; opacity: 0.8;">
+                <div class="row g-0 stats-grid text-center">
+                    <div class="col-6 mb-3">
+                        <div class="stat-value">10.000+</div>
+                        <div class="stat-label" style="color: #718096; font-size: 12px; margin-top: 2px;">Khách hàng</div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="stat-value">4.8/5</div>
+                        <div class="stat-label" style="color: #718096; font-size: 12px; margin-top: 2px;">Đánh giá</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-value">100+</div>
+                        <div class="stat-label" style="color: #718096; font-size: 12px; margin-top: 2px;">Dịch vụ</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label" style="color: #718096; font-size: 12px; margin-top: 2px;">Hỗ trợ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTAINER NỘI DUNG CHÍNH (BÊN PHẢI) -->
+    <div class="main-content d-flex flex-column" style="min-height: 100vh;">
+        
+        <!-- TOPBAR HÌNH 1 (TÌM KIẾM & USER - GIỮ NGUYÊN) -->
+        <div class="mx-4 my-3 d-flex justify-content-between align-items-center bg-white p-3 rounded-4 shadow-sm">
+            <div class="input-group w-50 bg-light rounded-pill px-3 py-1">
+                <span class="input-group-text bg-transparent border-0"><i class="bi bi-search text-muted"></i></span>
+                <input type="text" class="form-control bg-transparent border-0 shadow-none" style="font-size: 14px;" placeholder="Bạn cần tìm gì hôm nay?">
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="position-relative me-2">
+                    <i class="bi bi-bell fs-5 text-secondary"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-white" style="font-size: 8px; padding: 3px 5px;">2</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="text-end">
+                        <small class="text-muted d-block" style="font-size: 10px;">Xin chào,</small>
+                        <span class="fw-bold text-dark" style="font-size: 14px;">Khải Ái</span>
+                    </div>
+                    <span class="bg-vanta-yellow rounded-circle d-flex align-items-center justify-content-center fw-bold text-dark shadow-sm" style="width: 38px; height: 38px; font-size: 14px;">K</span>
+                    <i class="bi bi-chevron-down text-muted small"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHẦN THÂN TRANG TRỢ LÝ AI (Thay đổi theo hình thiết kế mới) -->
+        <div class="row g-0 flex-grow-1 px-4 pb-4">
+            
+            <!-- Cột Trái: Dashboard Thống kê & Dự đoán Chi tiêu -->
+            <main class="col-lg-8 pe-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h2 class="fw-bold text-dark mb-1" style="font-size: 26px;">Trợ lý AI của Vanta <span class="badge bg-primary fs-6 py-1 px-2 rounded-2 align-middle text-uppercase" style="font-size: 10px !important; background-color: #e0f2fe !important; color: #0284c7 !important;">Beta</span></h2>
+                        <p class="text-muted small m-0">Trợ lý thông minh, luôn sẵn sàng hỗ trợ bạn 24/7</p>
+                    </div>
+                    <button type="button" class="btn bg-vanta-yellow text-dark fw-bold rounded-pill btn-sm px-3 py-2" style="font-size: 13px;"><i class="bi bi-question-circle me-1"></i> Giới thiệu trợ lý AI</button>
+                </div>
+
+                <div class="dashboard-container">
+                    <h5 class="fw-bold text-dark mb-4" style="font-size: 16px;">Dashboard Thống kê & Dự đoán Chi tiêu</h5>
+                    
+                    <!-- 3 Khối số liệu hàng đầu -->
+                    <div class="row g-3 mb-5">
+                        <div class="col-md-4">
+                            <div class="card stat-card">
+                                <span class="fs-4 mb-2 d-block">💰</span>
+                                <h3 class="fw-bold text-dark mb-1" style="font-size: 24px;">150.000đ</h3>
+                                <small class="text-muted" style="font-size: 11px;">Tổng chi tiêu tháng này</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card stat-card">
+                                <span class="fs-4 mb-2 d-block">📦</span>
+                                <h3 class="fw-bold text-dark mb-1" style="font-size: 24px;">8 đơn</h3>
+                                <small class="text-muted" style="font-size: 11px;">Số đơn hàng tháng này</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card stat-card">
+                                <span class="fs-4 mb-2 d-block">📊</span>
+                                <h3 class="fw-bold text-dark mb-1" style="font-size: 24px;">13.000đ</h3>
+                                <small class="text-muted" style="font-size: 11px;">Mức chi tiêu ổn định</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Khu vực biểu đồ mô phỏng -->
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <h6 class="fw-bold text-dark mb-3" style="font-size: 13px;">Chi tiêu theo tuần</h6>
+                            <div class="d-flex align-items-end justify-content-between pt-4" style="height: 100px;">
+                                <div class="bg-warning rounded-top" style="width: 10px; height: 40px; background-color: #facc15 !important;"></div>
+                                <div class="bg-warning rounded-top" style="width: 10px; height: 35px; background-color: #facc15 !important;"></div>
+                                <div class="bg-warning rounded-top" style="width: 10px; height: 60px; background-color: #facc15 !important;"></div>
+                                <div class="bg-warning rounded-top" style="width: 10px; height: 50px; background-color: #facc15 !important;"></div>
+                                <div class="bg-warning rounded-top" style="width: 10px; height: 80px; background-color: #facc15 !important;"></div>
+                                <div class="bg-warning rounded-top" style="width: 10px; height: 70px; background-color: #facc15 !important;"></div>
+                                <div class="bg-warning rounded-top" style="width: 10px; height: 45px; background-color: #facc15 !important;"></div>
+                            </div>
+                            <div class="d-flex justify-content-between text-muted mt-2" style="font-size: 10px;">
+                                <span>T1</span><span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="fw-bold text-dark mb-3" style="font-size: 13px;">Cơ cấu chi tiêu theo loại</h6>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="position-relative d-flex align-items-center justify-content-center" style="width: 90px; height: 90px; border: 8px solid #f1f5f9; border-radius: 50%;">
+                                    <div class="position-absolute" style="width: 100%; height: 100%; border-radius: 50%; border: 8px solid transparent; border-top-color: #facc15; top:-8px; left:-8px;"></div>
+                                </div>
+                                <div style="font-size: 11px;">
+                                    <div class="mb-1"><i class="bi bi-circle-fill text-warning me-1"></i> Giúp việc 45%</div>
+                                    <div class="mb-1"><i class="bi bi-circle-fill text-danger me-1"></i> Đồ ăn 30%</div>
+                                    <div class="mb-1"><i class="bi bi-circle-fill text-success me-1"></i> Đi chợ 20%</div>
+                                    <div><i class="bi bi-circle-fill text-primary me-1"></i> Khác 5%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="fw-bold text-dark mb-3" style="font-size: 13px;">Dự đoán xu hướng tháng</h6>
+                            <div class="pt-4" style="height: 100px; border-bottom: 1px solid #e2e8f0; position: relative;">
+                                <svg viewBox="0 0 100 50" class="w-100 h-100">
+                                    <path d="M0,40 Q25,10 50,35 T100,10" fill="none" stroke="#facc15" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="d-flex justify-content-between text-muted mt-2" style="font-size: 9px;">
+                                <span>5/5</span><span>10/5</span><span>15/5</span><span>20/5</span><span>25/5</span><span>30/5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Insights -->
+                    <div class="border-top pt-4">
+                        <small class="fw-bold text-uppercase text-secondary d-block mb-3" style="font-size: 11px; letter-spacing: 0.05em;">Key Insights</small>
+                        <ul class="list-unstyled d-flex flex-column gap-2 m-0" style="font-size: 13px;">
+                            <li class="d-flex align-items-start gap-2">
+                                <span class="text-warning">●</span>
+                                <span>Bạn chi tiêu nhiều nhất vào thứ 5, hãy cân nhắc lên kế hoạch chi tiêu cho tuần tới.</span>
+                            </li>
+                            <li class="d-flex align-items-start gap-2">
+                                <span class="text-warning">●</span>
+                                <span>Tỷ lệ đặt giúp việc tăng 15% so với tháng trước. Rất tuyệt!</span>
+                            </li>
+                            <li class="d-flex align-items-start gap-2">
+                                <span class="text-warning">●</span>
+                                <span>Mức chi tiêu dự đoán sẽ tăng nhẹ vào cuối tháng. Hãy sử dụng mã VANTA20 để tiết kiệm!</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lịch sử trò chuyện gần đây -->
+                <div class="mt-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="fw-bold text-dark m-0" style="font-size: 15px;">Lịch sử trò chuyện gần đây</h6>
+                        <a href="#" class="text-warning fw-bold text-decoration-none small" style="font-size: 13px;">Xem tất cả</a>
+                    </div>
+                    <div class="bg-white p-3 rounded-4 d-flex justify-content-between align-items-center shadow-sm">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-light p-2 rounded-circle text-warning d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background-color: #fffbeb !important;">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                            </div>
+                            <div>
+                                <span class="fw-bold text-dark d-block" style="font-size: 14px;">Gợi ý giúp việc dọn dẹp nhà 3 tiếng...</span>
+                                <small class="text-muted" style="font-size: 11px;">09:41</small>
+                            </div>
+                        </div>
+                        <i class="bi bi-chevron-right text-muted small"></i>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Cột Phải: Khung chat trợ lý AI (Bố trí trong thẻ aside cấu trúc chuẩn ngữ nghĩa) -->
+            <aside class="col-lg-4 chat-sidebar p-4 d-flex flex-column justify-content-between shadow-sm rounded-4">
+                <div>
+                    <!-- Header Chat -->
+                    <div class="d-flex align-items-center justify-content-between pb-3 border-bottom mb-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="bg-warning p-1.5 rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; background-color: #facc15 !important;">
+                                <i class="bi bi-info-circle-fill text-dark" style="font-size: 12px;"></i>
+                            </div>
+                            <span class="fw-bold text-dark" style="font-size: 14px;">Khung Chat Trợ lý AI</span>
+                        </div>
+                        <span class="bg-success rounded-circle" style="width: 8px; height: 8px;"></span>
+                    </div>
+
+                    <!-- Nội dung Chat cuộc hội thoại -->
+                    <div class="d-flex flex-column gap-3">
+                        <div class="chat-bubble-user">
+                            Gợi ý giúp việc dọn dẹp nhà 3 tiếng vào chiều mai
+                        </div>
+                        
+                        <div class="d-flex gap-2 align-items-start">
+                            <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm flex-shrink-0" style="width: 28px; height: 28px; font-size: 11px;">K</div>
+                            <div class="chat-bubble-ai">
+                                Gợi ý danh sách đi chợ cho tuần này cho gia đình 4 người
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 align-items-start">
+                            <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm flex-shrink-0" style="width: 28px; height: 28px; font-size: 11px;">K</div>
+                            <div class="chat-bubble-ai">
+                                Dưới đây là một số giúp việc phù hợp với nhu cầu của bạn:
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-3">
+                    <div class="chat-input-box d-flex align-items-center justify-content-between mb-2">
+                        <div class="d-flex align-items-center gap-2 w-100">
+                            <i class="bi bi-magic text-warning"></i>
+                            <input type="text" class="form-control bg-transparent border-0 shadow-none p-0" style="font-size: 13px;" placeholder="Nhấn để bắt đầu trò chuyện...">
+                        </div>
+                        <button type="button" class="btn p-0 border-0 text-warning"><i class="bi bi-send-fill fs-5"></i></button>
+                    </div>
+                    <div class="text-center">
+                        <small class="text-muted" style="font-size: 10px;"><i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> Trợ lý AI có thể mắc lỗi</small>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

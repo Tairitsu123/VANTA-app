@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta - Xác nhận đơn hàng</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../shared.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">
+                    <h2>Vanta</h2>
+                    <p>LIFE MADE EASIER</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../dich_vu_home/dich_vu_home.html" class="nav-item">
+                    <i class="bi bi-house-door"></i>
+                    <span>Trang chủ</span>
+                </a>
+                
+                <div class="nav-item-group open">
+                    <a href="#" class="nav-item active" id="btn-toggle-service">
+                        <i class="bi bi-briefcase"></i>
+                        <span>Đặt dịch vụ</span>
+                        <i class="bi bi-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <div class="nav-sub-items" id="service-dropdown">
+                        <a href="../dich_vu_giup_viec/dich_vu_giup_viec.html" class="nav-sub-item">Đặt giúp việc</a>
+                        <a href="../dich_vu_do_an/dich_vu_do_an.html" class="nav-sub-item">Đặt món ăn</a>
+                        <a href="../dich_vu_di_cho/dich_vu_di_cho.html" class="nav-sub-item">Đi chợ hộ</a>
+                    </div>
+                </div>
+
+                <a href="../lich_su_dat_dich_vu/lich_su_dat_dich_vu.html" class="nav-item">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Lịch sử đặt dịch vụ</span>
+                </a>
+                <a href="../danh_gia_dich_vu/danh_gia_dich_vu.html" class="nav-item">
+                    <i class="bi bi-star"></i>
+                    <span>Đánh giá dịch vụ</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="bi bi-robot"></i>
+                    <span>Trợ lý AI</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="bi bi-gear"></i>
+                    <span>Cài đặt</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="promo-box">
+                    <p class="promo-label">GIỚI THIỆU VANTA</p>
+                    <h3>Rủ bạn bè<br>Nhận ưu đãi</h3>
+                    <button class="btn-black" onclick="showAlert('Chức năng giới thiệu bạn bè')">Giới thiệu ngay</button>
+                </div>
+                
+                <div class="sidebar-stats">
+                    <div class="stat-row">
+                        <div>
+                            <strong>10.000+</strong>
+                            <p>Khách hàng</p>
+                        </div>
+                        <div>
+                            <strong>4.8/5</strong>
+                            <p>Đánh giá</p>
+                        </div>
+                    </div>
+                    <div class="stat-row">
+                        <div>
+                            <strong>100+</strong>
+                            <p>Dịch vụ</p>
+                        </div>
+                        <div>
+                            <strong>24/7</strong>
+                            <p>Hỗ trợ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="search-container">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" placeholder="Bạn cần tìm gì hôm nay?">
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn"><i class="bi bi-bell"></i></button>
+                    <div class="user-profile">
+                        <span>Khải AI</span>
+                        <div class="avatar-circle text-dark" style="background:#FDE047;">K</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper bg-light-gray h-100">
+                <div class="checkout-container">
+                    
+                    <!-- Header -->
+                    <div class="checkout-header">
+                        <button class="btn-back" onclick="window.history.back()"><i class="bi bi-chevron-left"></i></button>
+                        <div>
+                            <h1>Xác nhận đơn hàng</h1>
+                            <p class="text-muted text-sm">Đặt món ăn</p>
+                        </div>
+                    </div>
+
+                    <!-- Stepper -->
+                    <div class="checkout-stepper">
+                        <div class="step-pill active">
+                            <span class="step-num">1</span> Chi tiết đơn
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step-pill">
+                            <span class="step-num">2</span> Thanh toán
+                        </div>
+                    </div>
+
+                    <!-- Details Card -->
+                    <div class="checkout-card">
+                        <h3 class="card-title">Chi tiết đơn hàng</h3>
+                        <div class="detail-row">
+                            <span class="text-muted">Số món</span>
+                            <span class="fw-500">3 món</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="text-muted">Địa chỉ giao</span>
+                            <span class="fw-500">123 Đường Nguyễn Huệ, Q.1</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="text-muted">Thời gian giao</span>
+                            <span class="fw-500">30-45 phút</span>
+                        </div>
+                    </div>
+
+                    <!-- Cost Card -->
+                    <div class="checkout-card">
+                        <h3 class="card-title">Chi phí</h3>
+                        <div class="detail-row mb-2">
+                            <span class="text-muted">Tạm tính</span>
+                            <span class="fw-500">185.000đ</span>
+                        </div>
+                        <div class="detail-row mb-4">
+                            <span class="text-muted">Phí dịch vụ</span>
+                            <span class="fw-500">15.000đ</span>
+                        </div>
+                        
+                        <div class="detail-row total-row">
+                            <span class="fw-600 text-lg">Tổng cộng</span>
+                            <span class="fw-700 text-yellow text-xl">200.000đ</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <button class="btn-primary-lg" onclick="window.location.href='../thanh_toan_tien_mat/thanh_toan_tien_mat.html'">
+                        Tiếp tục thanh toán <i class="bi bi-chevron-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast / Alert -->
+    <div id="toast" class="toast hidden">
+        <i class="bi bi-info-circle-fill"></i>
+        <span id="toast-message">Thông báo</span>
+    </div>
+
+    <script src="../shared.js"></script>
+</body>
+</html>
