@@ -1,1610 +1,954 @@
 <!DOCTYPE html>
-<html lang="english">
-  <head>
-    <title>Citachcati - exported project</title>
-    <meta property="og:title" content="Citachcati - exported project" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
+<html lang="vi">
 
-    <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cài đặt địa chỉ của tôi</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Be Vietnam Pro',sans-serif;
+        }
+
+        body{
+            background:#f6f6f6;
+        }
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+        /* =======================
+            NAVBAR
+        ======================== */
+
+        .navbar{
+            background:#fff;
+            height:70px;
+            box-shadow:0 2px 12px rgba(0,0,0,.05);
+        }
+
+        .navbar-brand{
+            font-weight:700;
+            color:#6f42c1;
+            font-size:26px;
+        }
+
+        .search-box{
+            width:420px;
+        }
+
+        .search-box input{
+            border-radius:30px;
+            padding-left:18px;
+        }
+
+        .icon-btn{
+            width:42px;
+            height:42px;
+            border-radius:50%;
+            background:#f4f4f4;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            transition:.3s;
+            cursor:pointer;
+        }
+
+        .icon-btn:hover{
+            background:#6f42c1;
+            color:#fff;
+        }
+
+        .avatar{
+            width:45px;
+            height:45px;
+            border-radius:50%;
+            object-fit:cover;
+        }
+
+        /* =======================
+            LAYOUT
+        ======================== */
+
+        .main-wrapper{
+            padding:40px 0;
+        }
+
+        .sidebar{
+            background:#fff;
+            border-radius:18px;
+            padding:25px;
+            box-shadow:0 2px 12px rgba(0,0,0,.05);
+        }
+
+        .content{
+            background:#fff;
+            border-radius:18px;
+            padding:30px;
+            box-shadow:0 2px 12px rgba(0,0,0,.05);
+        }
+
+        /* =======================
+            PROFILE
+        ======================== */
+
+        .profile{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .profile img{
+            width:90px;
+            height:90px;
+            border-radius:50%;
+            object-fit:cover;
+            margin-bottom:15px;
+        }
+
+        .profile h5{
+            margin-bottom:5px;
+            font-weight:700;
+        }
+
+        .profile p{
+            color:#888;
+            font-size:14px;
+        }
+
+        /* =======================
+            MENU
+        ======================== */
+
+        .menu-item{
+            display:flex;
+            align-items:center;
+            gap:15px;
+
+            padding:14px 16px;
+            border-radius:12px;
+
+            transition:.3s;
+            margin-bottom:8px;
+
+            cursor:pointer;
+        }
+
+        .menu-item:hover{
+            background:#f3ecff;
+            color:#6f42c1;
+        }
+
+        .menu-item.active{
+            background:#6f42c1;
+            color:#fff;
+        }
+
+        .menu-item i{
+            font-size:20px;
+        }
+
+        /* =======================
+            PAGE TITLE
+        ======================== */
+
+        .page-title{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:30px;
+        }
+
+        .page-title h3{
+            font-weight:700;
+            margin-bottom:5px;
+        }
+
+        .page-title p{
+            color:#888;
+            margin:0;
+        }
+
+        .btn-purple{
+            background:#6f42c1;
+            color:#fff;
+            border:none;
+            border-radius:10px;
+            padding:10px 20px;
+            transition:.3s;
+        }
+
+        .btn-purple:hover{
+            background:#5d35a8;
+            color:#fff;
+        }
+
+        /* =======================
+            ADDRESS CARD
+        ======================== */
+
+        .address-card{
+            border:1px solid #eee;
+            border-radius:16px;
+            padding:22px;
+            transition:.3s;
+            margin-bottom:20px;
+        }
+
+        .address-card:hover{
+            box-shadow:0 8px 25px rgba(0,0,0,.08);
+            transform:translateY(-2px);
+        }
+
+        .address-icon{
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            background:#f3ecff;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-size:28px;
+            color:#6f42c1;
+        }
+
+        .badge-default{
+            background:#e8dbff;
+            color:#6f42c1;
+            font-weight:600;
+            padding:7px 12px;
+            border-radius:30px;
+            font-size:13px;
+        }
+
+        .address-name{
+            font-size:20px;
+            font-weight:700;
+        }
+
+        .address-info{
+            color:#666;
+            margin-top:5px;
+        }
+
+        .btn-edit{
+            border-radius:10px;
+        }
+
+        /* =======================
+            MODAL
+        ======================== */
+
+        .modal-content{
+            border-radius:18px;
+            border:none;
+        }
+
+        .modal-header{
+            border:none;
+        }
+
+        .modal-footer{
+            border:none;
+        }
+
+        @media(max-width:992px){
+
+            .search-box{
+                display:none;
+            }
+
+            .sidebar{
+                margin-bottom:25px;
+            }
+
+        }
     </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
 
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-theme-neutral-dark);
-        background: var(--dl-color-theme-neutral-light);
+</head>
 
-        fill: var(--dl-color-theme-neutral-dark);
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/animate.css@4.1.1/animate.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=ABeeZee:ital,wght@0,400;1,400&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-    />
-  </head>
-  <body>
-    <link rel="stylesheet" href="./style.css" />
-    <div>
-      <link href="./citachcati.css" rel="stylesheet" />
+<body>
 
-      <div class="citachcati-container1">
-        <div class="citachcati-thq-citachcati-elm">
-          <div class="citachcati-thq-main-container-elm">
-            <div class="citachcati-thq-aside-sidebar-elm">
-              <div class="citachcati-thq-logo-section-elm">
-                <div class="citachcati-thq-background-elm10"></div>
-                <div class="citachcati-thq-container-elm10">
-                  <div class="citachcati-thq-heading1-elm">
-                    <span class="citachcati-thq-text-elm10">Vanta</span>
-                  </div>
-                  <div class="citachcati-thq-container-elm11">
-                    <span class="citachcati-thq-text-elm11">
-                      LIFE MADE EASIER
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="citachcati-thq-stats-grid-elm">
-                <div class="citachcati-thq-overlay-elm1">
-                  <div class="citachcati-thq-container-elm12">
-                    <span class="citachcati-thq-text-elm12">10.000+</span>
-                  </div>
-                  <div class="citachcati-thq-container-elm13">
-                    <span class="citachcati-thq-text-elm13">Khách hàng</span>
-                  </div>
-                </div>
-                <div class="citachcati-thq-overlay-elm2">
-                  <div class="citachcati-thq-container-elm14">
-                    <span class="citachcati-thq-text-elm14">4.8/5</span>
-                  </div>
-                  <div class="citachcati-thq-container-elm15">
-                    <span class="citachcati-thq-text-elm15">Đánh giá</span>
-                  </div>
-                </div>
-                <div class="citachcati-thq-overlay-elm3">
-                  <div class="citachcati-thq-container-elm16">
-                    <span class="citachcati-thq-text-elm16">100+</span>
-                  </div>
-                  <div class="citachcati-thq-container-elm17">
-                    <span class="citachcati-thq-text-elm17">Dịch vụ</span>
-                  </div>
-                </div>
-                <div class="citachcati-thq-overlay-elm4">
-                  <div class="citachcati-thq-container-elm18">
-                    <span class="citachcati-thq-text-elm18">24/7</span>
-                  </div>
-                  <div class="citachcati-thq-container-elm19">
-                    <span class="citachcati-thq-text-elm19">Hỗ trợ</span>
-                  </div>
-                </div>
-              </div>
-              <div class="citachcati-thq-referral-card-elm">
-                <div class="citachcati-thq-container-elm20">
-                  <span class="citachcati-thq-text-elm20">
-                    GIỚI THIỆU VANTA
-                  </span>
-                </div>
-                <div class="citachcati-thq-heading3-elm1">
-                  <span class="citachcati-thq-text-elm21">
-                    <span>Rủ bạn bè</span>
-                    <br />
-                    <span>Nhận ưu đãi</span>
-                  </span>
-                </div>
-                <button class="citachcati-thq-button-elm10">
-                  <span class="citachcati-thq-text-elm24">Giới thiệu ngay</span>
-                </button>
-              </div>
-              <div class="citachcati-thq-navigation-links-elm">
-                <div class="citachcati-thq-link-elm1">
-                  <img
-                    src="public/container9855-wtia.svg"
-                    alt="Container9855"
-                    class="citachcati-thq-container-elm21"
-                  />
-                  <div class="citachcati-thq-container-elm22">
-                    <span class="citachcati-thq-text-elm25">Trang chủ</span>
-                  </div>
-                </div>
-                <div class="citachcati-thq-link-elm2">
-                  <img
-                    src="public/container9856-lm2.svg"
-                    alt="Container9856"
-                    class="citachcati-thq-container-elm23"
-                  />
-                  <div class="citachcati-thq-container-elm24">
-                    <span class="citachcati-thq-text-elm26">Đặt dịch vụ</span>
-                  </div>
-                </div>
-                <div class="citachcati-thq-link-elm3">
-                  <img
-                    src="public/container9857-i057.svg"
-                    alt="Container9857"
-                    class="citachcati-thq-container-elm25"
-                  />
-                  <div class="citachcati-thq-container-elm26">
-                    <span class="citachcati-thq-text-elm27">
-                      Lịch sử đặt dịch vụ
-                    </span>
-                  </div>
-                </div>
-                <div class="citachcati-thq-link-elm4">
-                  <img
-                    src="public/container9858-b56.svg"
-                    alt="Container9858"
-                    class="citachcati-thq-container-elm27"
-                  />
-                  <div class="citachcati-thq-container-elm28">
-                    <span class="citachcati-thq-text-elm28">
-                      Đánh giá dịch vụ
-                    </span>
-                  </div>
-                </div>
-                <div class="citachcati-thq-link-elm5">
-                  <img
-                    src="public/container9859-xxo.svg"
-                    alt="Container9859"
-                    class="citachcati-thq-container-elm29"
-                  />
-                  <div class="citachcati-thq-container-elm30">
-                    <span class="citachcati-thq-text-elm29">Trợ lý AI</span>
-                  </div>
-                </div>
-                <button class="citachcati-thq-button-elm11">
-                  <div class="citachcati-thq-container-elm31">
-                    <div class="citachcati-thq-container-elm32">
-                      <img
-                        src="public/svg1277-8g4.svg"
-                        alt="SVG1277"
-                        class="citachcati-thq-svg-elm1"
-                      />
-                    </div>
-                    <div class="citachcati-thq-container-elm33">
-                      <span class="citachcati-thq-text-elm30">Cài đặt</span>
-                    </div>
-                  </div>
-                </button>
-              </div>
-            </div>
-            <div class="citachcati-thq-main-content-elm">
-              <div class="citachcati-thq-top-header-elm">
-                <div class="citachcati-thq-container-elm34">
-                  <div class="citachcati-thq-input-elm">
-                    <div class="citachcati-thq-container-elm35">
-                      <span class="citachcati-thq-text-elm31">
-                        Bạn cần tìm gì hôm nay?
-                      </span>
-                    </div>
-                  </div>
-                  <img
-                    src="public/container9812-dd7.svg"
-                    alt="Container9812"
-                    class="citachcati-thq-container-elm36"
-                  />
-                </div>
-                <div class="citachcati-thq-container-elm37">
-                  <div class="citachcati-thq-container-elm38">
-                    <img
-                      src="public/symbol9812-8ccb.svg"
-                      alt="Symbol9812"
-                      class="citachcati-thq-symbol-elm"
-                    />
-                    <div class="citachcati-thq-background-elm11"></div>
-                  </div>
-                  <div class="citachcati-thq-vertical-border-elm">
-                    <div class="citachcati-thq-container-elm39">
-                      <div class="citachcati-thq-container-elm40">
-                        <span class="citachcati-thq-text-elm32">Xin chào,</span>
-                      </div>
-                      <div class="citachcati-thq-container-elm41">
-                        <span class="citachcati-thq-text-elm33">Khải Ái</span>
-                      </div>
-                    </div>
-                    <div
-                      class="citachcati-thq-background-border-shadow-elm"
-                    ></div>
-                    <img
-                      src="public/container9813-rasn.svg"
-                      alt="Container9813"
-                      class="citachcati-thq-container-elm42"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="citachcati-thq-content-area-elm">
-                <div class="citachcati-thq-container-elm43">
-                  <div class="citachcati-thq-header-elm">
-                    <div class="citachcati-thq-heading2-elm">
-                      <span class="citachcati-thq-text-elm34">Cài đặt</span>
-                    </div>
-                    <div class="citachcati-thq-container-elm44">
-                      <span class="citachcati-thq-text-elm35">
-                        Quản lý tài khoản và tuỳ chỉnh trải nghiệm của bạn
-                      </span>
-                    </div>
-                  </div>
-                  <div class="citachcati-thq-container-elm45">
-                    <div class="citachcati-thq-settings-sidebar-navigation-elm">
-                      <button class="citachcati-thq-button-elm12">
-                        <img
-                          src="public/background5034-qux.svg"
-                          alt="Background5034"
-                          class="citachcati-thq-background-elm12"
-                        />
-                        <div class="citachcati-thq-margin-elm1">
-                          <div class="citachcati-thq-container-elm46">
-                            <div class="citachcati-thq-container-elm47">
-                              <span class="citachcati-thq-text-elm36">
-                                Thông tin tài khoản
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm48">
-                              <span class="citachcati-thq-text-elm37">
-                                Quản lý thông tin cá nhân
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button class="citachcati-thq-button-elm13">
-                        <img
-                          src="public/backgroundshadow5036-uakf.svg"
-                          alt="BackgroundShadow5036"
-                          class="citachcati-thq-background-shadow-elm"
-                        />
-                        <div class="citachcati-thq-margin-elm2">
-                          <div class="citachcati-thq-container-elm49">
-                            <div class="citachcati-thq-container-elm50">
-                              <span class="citachcati-thq-text-elm38">
-                                Địa chỉ của tôi
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm51">
-                              <span class="citachcati-thq-text-elm39">
-                                Quản lý địa chỉ nhận hàng
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button class="citachcati-thq-button-elm14">
-                        <img
-                          src="public/background5035-g9e.svg"
-                          alt="Background5035"
-                          class="citachcati-thq-background-elm13"
-                        />
-                        <div class="citachcati-thq-margin-elm3">
-                          <div class="citachcati-thq-container-elm52">
-                            <div class="citachcati-thq-container-elm53">
-                              <span class="citachcati-thq-text-elm40">
-                                <span>Phương thức thanh</span>
-                                <br />
-                                <span>toán</span>
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm54">
-                              <span class="citachcati-thq-text-elm43">
-                                Quản lý thẻ và tài khoản
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button class="citachcati-thq-button-elm15">
-                        <img
-                          src="public/background5037-kg24.svg"
-                          alt="Background5037"
-                          class="citachcati-thq-background-elm14"
-                        />
-                        <div class="citachcati-thq-margin-elm4">
-                          <div class="citachcati-thq-container-elm55">
-                            <div class="citachcati-thq-container-elm56">
-                              <span class="citachcati-thq-text-elm44">
-                                Thông báo
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm57">
-                              <span class="citachcati-thq-text-elm45">
-                                Tuỳ chỉnh thông báo
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button class="citachcati-thq-button-elm16">
-                        <img
-                          src="public/background5038-iamv.svg"
-                          alt="Background5038"
-                          class="citachcati-thq-background-elm15"
-                        />
-                        <div class="citachcati-thq-margin-elm5">
-                          <div class="citachcati-thq-container-elm58">
-                            <div class="citachcati-thq-container-elm59">
-                              <span class="citachcati-thq-text-elm46">
-                                Bảo mật
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm60">
-                              <span class="citachcati-thq-text-elm47">
-                                Mật khẩu và bảo mật
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button class="citachcati-thq-button-elm17">
-                        <img
-                          src="public/background5039-o0pd.svg"
-                          alt="Background5039"
-                          class="citachcati-thq-background-elm16"
-                        />
-                        <div class="citachcati-thq-margin-elm6">
-                          <div class="citachcati-thq-container-elm61">
-                            <div class="citachcati-thq-container-elm62">
-                              <span class="citachcati-thq-text-elm48">
-                                Ngôn ngữ
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm63">
-                              <span class="citachcati-thq-text-elm49">
-                                Thay đổi ngôn ngữ
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button class="citachcati-thq-button-elm18">
-                        <img
-                          src="public/background5040-8ab.svg"
-                          alt="Background5040"
-                          class="citachcati-thq-background-elm17"
-                        />
-                        <div class="citachcati-thq-margin-elm7">
-                          <div class="citachcati-thq-container-elm64">
-                            <div class="citachcati-thq-container-elm65">
-                              <span class="citachcati-thq-text-elm50">
-                                Trợ năng
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm66">
-                              <span class="citachcati-thq-text-elm51">
-                                Hỗ trợ sử dụng
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button class="citachcati-thq-button-elm19">
-                        <img
-                          src="public/background5041-c7bq.svg"
-                          alt="Background5041"
-                          class="citachcati-thq-background-elm18"
-                        />
-                        <div class="citachcati-thq-margin-elm8">
-                          <div class="citachcati-thq-container-elm67">
-                            <div class="citachcati-thq-container-elm68">
-                              <span class="citachcati-thq-text-elm52">
-                                <span>Điều khoản &amp; Chính</span>
-                                <br />
-                                <span>sách</span>
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm69">
-                              <span class="citachcati-thq-text-elm55">
-                                Điều khoản sử dụng
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                      <button class="citachcati-thq-button-elm20">
-                        <img
-                          src="public/background5042-pvi.svg"
-                          alt="Background5042"
-                          class="citachcati-thq-background-elm19"
-                        />
-                        <div class="citachcati-thq-margin-elm9">
-                          <div class="citachcati-thq-container-elm70">
-                            <div class="citachcati-thq-container-elm71">
-                              <span class="citachcati-thq-text-elm56">
-                                Đăng xuất
-                              </span>
-                            </div>
-                            <div class="citachcati-thq-container-elm72">
-                              <span class="citachcati-thq-text-elm57">
-                                Đăng xuất tài khoản
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                    </div>
-                    <div class="citachcati-thq-section-address-list-panel-elm">
-                      <div class="citachcati-thq-container-elm73">
-                        <div class="citachcati-thq-heading3-elm2">
-                          <span class="citachcati-thq-text-elm58">
-                            Địa chỉ của tôi
-                          </span>
-                        </div>
-                        <button class="citachcati-thq-button-elm21">
-                          <div class="citachcati-thq-container-elm74"></div>
-                          <span class="citachcati-thq-text-elm59">
-                            Thêm địa chỉ
-                          </span>
-                        </button>
-                      </div>
-                      <div class="citachcati-thq-address-cards-elm">
-                        <div class="citachcati-thq-home-address-elm">
-                          <div class="citachcati-thq-container-elm75">
-                            <div class="citachcati-thq-background-border-elm1">
-                              <span class="citachcati-thq-text-elm60">🏠</span>
-                            </div>
-                            <div class="citachcati-thq-container-elm76">
-                              <div class="citachcati-thq-container-elm77">
-                                <div class="citachcati-thq-heading4-elm1">
-                                  <span class="citachcati-thq-text-elm61">
-                                    Nhà riêng
-                                  </span>
-                                </div>
-                                <div class="citachcati-thq-background-elm20">
-                                  <span class="citachcati-thq-text-elm62">
-                                    Mặc định
-                                  </span>
-                                </div>
-                              </div>
-                              <div class="citachcati-thq-container-elm78">
-                                <span class="citachcati-thq-text-elm63">
-                                  123 Đường Nguyễn Huệ, Q.1, TP.HCM
-                                </span>
-                              </div>
-                              <div class="citachcati-thq-container-elm79">
-                                <span class="citachcati-thq-text-elm64">
-                                  0901 234 567
-                                </span>
-                              </div>
-                            </div>
-                            <div class="citachcati-thq-container-elm80">
-                              <button class="citachcati-thq-button-elm22">
-                                <img
-                                  src="public/svg1163-hd3s.svg"
-                                  alt="SVG1163"
-                                  class="citachcati-thq-svg-elm2"
-                                />
-                                <span class="citachcati-thq-text-elm65">
-                                  Sửa
-                                </span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="citachcati-thq-office-address-elm">
-                          <div class="citachcati-thq-container-elm81">
-                            <div class="citachcati-thq-background-border-elm2">
-                              <span class="citachcati-thq-text-elm66">🏢</span>
-                            </div>
-                            <div class="citachcati-thq-container-elm82">
-                              <div class="citachcati-thq-heading4-elm2">
-                                <span class="citachcati-thq-text-elm67">
-                                  Văn phòng
-                                </span>
-                              </div>
-                              <div class="citachcati-thq-container-elm83">
-                                <span class="citachcati-thq-text-elm68">
-                                  45 Lý Tự Trọng, Q.1, TP.HCM
-                                </span>
-                              </div>
-                              <div class="citachcati-thq-container-elm84">
-                                <span class="citachcati-thq-text-elm69">
-                                  0901 234 567
-                                </span>
-                              </div>
-                            </div>
-                            <div class="citachcati-thq-container-elm85">
-                              <button class="citachcati-thq-button-elm23">
-                                <span class="citachcati-thq-text-elm70">
-                                  Đặt mặc định
-                                </span>
-                              </button>
-                              <button class="citachcati-thq-button-elm24">
-                                <img
-                                  src="public/svg1163-7w5j.svg"
-                                  alt="SVG1163"
-                                  class="citachcati-thq-svg-elm3"
-                                />
-                                <span class="citachcati-thq-text-elm71">
-                                  Sửa
-                                </span>
-                              </button>
-                              <button class="citachcati-thq-button-elm25">
-                                <img
-                                  src="public/svg1163-i0q.svg"
-                                  alt="SVG1163"
-                                  class="citachcati-thq-svg-elm4"
-                                />
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="https://play.teleporthq.io/signup" class="citachcati-link">
-          <div aria-label="Sign up to TeleportHQ" class="citachcati-container2">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 19 21"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="citachcati-icon1"
-            >
-              <path
-                d="M9.1017 4.64355H2.17867C0.711684 4.64355 -0.477539 5.79975 -0.477539 7.22599V13.9567C-0.477539 15.3829 0.711684 16.5391 2.17867 16.5391H9.1017C10.5687 16.5391 11.7579 15.3829 11.7579 13.9567V7.22599C11.7579 5.79975 10.5687 4.64355 9.1017 4.64355Z"
-                fill="#B23ADE"
-              ></path>
-              <path
-                d="M10.9733 12.7878C14.4208 12.7878 17.2156 10.0706 17.2156 6.71886C17.2156 3.3671 14.4208 0.649963 10.9733 0.649963C7.52573 0.649963 4.73096 3.3671 4.73096 6.71886C4.73096 10.0706 7.52573 12.7878 10.9733 12.7878Z"
-                fill="#FF5C5C"
-              ></path>
-              <path
-                d="M17.7373 13.3654C19.1497 14.1588 19.1497 15.4634 17.7373 16.2493L10.0865 20.5387C8.67402 21.332 7.51855 20.6836 7.51855 19.0968V10.5141C7.51855 8.92916 8.67402 8.2807 10.0865 9.07221L17.7373 13.3654Z"
-                fill="#2874DE"
-              ></path>
-            </svg>
-            <span class="citachcati-text4">Built in TeleportHQ</span>
-          </div>
-        </a>
-      </div>
-      <link
-        rel="canonical"
-        href="https://nhom-7-web-wsdrje.teleporthq.site/citachcati"
-      />
+<!-- ===========================
+        NAVBAR
+=========================== -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container">
+
+<a class="navbar-brand" href="#">
+    DeliNow
+</a>
+
+<div class="search-box mx-auto">
+
+<input
+type="text"
+class="form-control"
+placeholder="Tìm kiếm..."
+>
+
+</div>
+
+<div class="d-flex align-items-center gap-3">
+
+<div class="icon-btn">
+<i class="bi bi-bell"></i>
+</div>
+
+<div class="icon-btn">
+<i class="bi bi-cart3"></i>
+</div>
+
+<img
+src="https://i.pravatar.cc/150?img=12"
+class="avatar"
+alt="Avatar">
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ===========================
+        MAIN
+=========================== -->
+
+<div class="container main-wrapper">
+
+<div class="row">
+
+<!-- SIDEBAR -->
+
+<div class="col-lg-3">
+<div class="sidebar">
+    <!-- PROFILE -->
+    <div class="profile">
+        <img src="https://i.pravatar.cc/200?img=12" alt="Avatar">
+
+        <h5>Khải Ái</h5>
+        <p>khai.ai@gmail.com</p>
     </div>
-  </body>
+
+    <!-- MENU -->
+    <a href="thong_tin_tk.html" class="menu-item">
+        <i class="bi bi-person-circle"></i>
+
+        <div>
+            <strong>Thông tin tài khoản</strong>
+
+            <div class="small text-secondary">
+                Quản lý thông tin cá nhân
+            </div>
+        </div>
+    </a>
+
+    <a href="dia_chi.html" class="menu-item active">
+        <i class="bi bi-geo-alt-fill"></i>
+
+        <div>
+            <strong>Địa chỉ của tôi</strong>
+
+            <div class="small">
+                Quản lý địa chỉ giao hàng
+            </div>
+        </div>
+    </a>
+
+    <a href="don_hang.html" class="menu-item">
+        <i class="bi bi-bag-check"></i>
+
+        <div>
+            <strong>Đơn hàng</strong>
+
+            <div class="small text-secondary">
+                Theo dõi đơn hàng
+            </div>
+        </div>
+    </a>
+
+    <a href="lich_su_don.html" class="menu-item">
+        <i class="bi bi-clock-history"></i>
+
+        <div>
+            <strong>Lịch sử đơn</strong>
+
+            <div class="small text-secondary">
+                Các đơn đã hoàn thành
+            </div>
+        </div>
+    </a>
+
+    <a href="phuong_thuc_tt.html" class="menu-item">
+        <i class="bi bi-credit-card"></i>
+
+        <div>
+            <strong>Thanh toán</strong>
+
+            <div class="small text-secondary">
+                Ví & phương thức thanh toán
+            </div>
+        </div>
+    </a>
+
+    <a href="bao_mat.html" class="menu-item">
+        <i class="bi bi-shield-lock"></i>
+
+        <div>
+            <strong>Bảo mật</strong>
+
+            <div class="small text-secondary">
+                Đổi mật khẩu
+            </div>
+        </div>
+    </a>
+
+    <a href="thong_bao.html" class="menu-item">
+        <i class="bi bi-bell"></i>
+
+        <div>
+            <strong>Thông báo</strong>
+
+            <div class="small text-secondary">
+                Quản lý thông báo
+            </div>
+        </div>
+    </a>
+
+    <a href="ngon_ngu.html" class="menu-item">
+        <i class="bi bi-translate"></i>
+
+        <div>
+            <strong>Ngôn ngữ</strong>
+
+            <div class="small text-secondary">
+                Tiếng Việt
+            </div>
+        </div>
+    </a>
+
+    <a href="dieu_khoan.html" class="menu-item">
+        <i class="bi bi-file-earmark-text"></i>
+
+        <div>
+            <strong>Điều khoản</strong>
+
+            <div class="small text-secondary">
+                Chính sách sử dụng
+            </div>
+        </div>
+    </a>
+
+    <a href="#" class="menu-item text-danger">
+        <i class="bi bi-box-arrow-right"></i>
+
+        <div>
+            <strong>Đăng xuất</strong>
+
+            <div class="small">
+                Đăng xuất tài khoản
+            </div>
+        </div>
+    </a>
+</div>
+</div>
+
+<!-- CONTENT -->
+<div class="col-lg-9">
+    <div class="content">
+
+        <div class="page-title">
+            <div>
+                <h3>Địa chỉ của tôi</h3>
+
+                <p>Quản lý các địa chỉ giao hàng của bạn</p>
+            </div>
+
+            <button class="btn btn-purple"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addAddressModal">
+
+                <i class="bi bi-plus-circle me-2"></i>
+                Thêm địa chỉ
+            </button>
+        </div>
+
+        <!-- DANH SÁCH ĐỊA CHỈ -->
+        <div class="address-card">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-1 text-center">
+                    <div class="address-icon">
+                        <i class="bi bi-house-door-fill"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="d-flex align-items-center gap-2 mb-2">
+
+                        <div class="address-name">
+                            Nhà riêng
+                        </div>
+
+                        <span class="badge-default">
+                            Mặc định
+                        </span>
+
+                    </div>
+
+                    <div class="address-info">
+                        <i class="bi bi-geo-alt me-2"></i>
+                        123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh
+                    </div>
+
+                    <div class="address-info">
+                        <i class="bi bi-telephone me-2"></i>
+                        0901 234 567
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 text-end">
+                    <button class="btn btn-outline-primary btn-edit">
+                        <i class="bi bi-pencil-square me-2"></i>
+                        Sửa
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+<!-- ĐỊA CHỈ VĂN PHÒNG -->
+<div class="address-card">
+
+    <div class="row align-items-center">
+
+        <div class="col-md-1 text-center">
+
+            <div class="address-icon">
+                <i class="bi bi-building-fill"></i>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-8">
+
+            <div class="d-flex align-items-center gap-2 mb-2">
+
+                <div class="address-name">
+                    Văn phòng
+                </div>
+
+            </div>
+
+
+            <div class="address-info">
+
+                <i class="bi bi-geo-alt me-2"></i>
+                45 Lý Tự Trọng, Phường Bến Thành, Quận 1,
+                TP. Hồ Chí Minh
+
+            </div>
+
+
+            <div class="address-info">
+
+                <i class="bi bi-telephone me-2"></i>
+                0908 888 888
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-3 text-end">
+
+            <button class="btn btn-outline-primary btn-edit">
+
+                <i class="bi bi-pencil-square me-2"></i>
+                Sửa
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ĐỊA CHỈ KHÁC -->
+<div class="address-card">
+    <div class="row align-items-center">
+        <div class="col-md-1 text-center">
+            <div class="address-icon">
+                <i class="bi bi-geo-alt-fill"></i>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="address-name">
+                    Địa chỉ khác
+                </div>
+            </div>
+            <div class="address-info">
+
+                <i class="bi bi-geo-alt me-2"></i>
+                80 Võ Văn Tần, Phường Võ Thị Sáu,
+                Quận 3, TP. Hồ Chí Minh
+            </div>
+            <div class="address-info">
+                <i class="bi bi-telephone me-2"></i>
+                0912 345 678
+            </div>
+        </div>
+        <div class="col-md-3 text-end">
+            <button class="btn btn-outline-primary btn-edit">
+                <i class="bi bi-pencil-square me-2"></i>
+                Sửa
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================
+     MODAL THÊM ĐỊA CHỈ
+=========================== -->
+
+<div class="modal fade"
+     id="addAddressModal"
+     tabindex="-1"
+     aria-labelledby="addAddressModalLabel"
+     aria-hidden="true">
+
+
+    <div class="modal-dialog modal-lg">
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+
+                <h4 class="modal-title" id="addAddressModalLabel">
+
+                    Thêm địa chỉ mới
+
+                </h4>
+
+
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Đóng">
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+                <div class="row">
+
+
+                    <div class="col-md-6 mb-3">
+
+
+                        <label class="form-label">
+
+                            Họ và tên
+
+                        </label>
+
+
+
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Nhập họ và tên">
+
+
+                    </div>
+
+
+
+                    <div class="col-md-6 mb-3">
+
+
+                        <label class="form-label">
+
+                            Số điện thoại
+
+                        </label>
+
+
+
+                        <input type="tel"
+                               class="form-control"
+                               placeholder="090xxxxxxxx">
+
+
+                    </div>
+
+
+
+                    <div class="col-md-6 mb-3">
+
+
+                        <label class="form-label">
+
+                            Tỉnh / Thành phố
+
+                        </label>
+
+
+
+                        <select class="form-select">
+
+                            <option>
+                                TP. Hồ Chí Minh
+                            </option>
+
+
+                            <option>
+                                Hà Nội
+                            </option>
+
+
+                            <option>
+                                Đà Nẵng
+                            </option>
+
+
+                        </select>
+
+
+                    </div>
+
+
+
+                    <div class="col-md-6 mb-3">
+
+
+                        <label class="form-label">
+
+                            Quận / Huyện
+
+                        </label>
+
+
+
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Nhập quận / huyện">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label class="form-label">
+                            Địa chỉ chi tiết
+                        </label>
+                        <textarea class="form-control"
+                                  rows="4"
+                                  placeholder="Số nhà, tên đường..."></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">
+                            Loại địa chỉ
+                        </label>
+                        <select class="form-select">
+                            <option>
+                                Nhà riêng
+                            </option>
+                            <option>
+                                Văn phòng
+                            </option>
+                            <option>
+                                Khác
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-end">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   id="defaultAddress">
+                            <label class="form-check-label"
+                                   for="defaultAddress">
+                                Đặt làm địa chỉ mặc định
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- ==========================
+     MODAL FOOTER
+========================== -->
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Hủy
+                </button>
+
+                <button type="button"
+                        class="btn btn-primary"
+                        id="saveAddressBtn">
+                    <i class="bi bi-plus-circle me-2"></i>
+                    Thêm địa chỉ
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+     JAVASCRIPT BOOTSTRAP 5
+========================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ==========================
+     JAVASCRIPT CRUD THÊM ĐỊA CHỈ
+========================== -->
+
+<script>
+
+    // Lấy button thêm địa chỉ
+    const saveAddressBtn = document.getElementById("saveAddressBtn");
+
+    // Xử lý sự kiện thêm địa chỉ
+    saveAddressBtn.addEventListener("click", function () {
+
+        // Lấy dữ liệu từ form
+        const name = document.querySelector(
+            'input[placeholder="Nhập họ và tên"]'
+        ).value;
+
+        const phone = document.querySelector(
+            'input[placeholder="090xxxxxxxx"]'
+        ).value;
+
+        const city = document.querySelector(".form-select").value;
+
+        const district = document.querySelector(
+            'input[placeholder="Nhập quận / huyện"]'
+        ).value;
+
+        const detailAddress = document.querySelector("textarea").value;
+
+        // Kiểm tra dữ liệu nhập
+        if (
+            name === "" ||
+            phone === "" ||
+            district === "" ||
+            detailAddress === ""
+        ) {
+            alert("Vui lòng nhập đầy đủ thông tin địa chỉ!");
+            return;
+        }
+
+        // Tạo thẻ địa chỉ mới
+        const addressContainer = document.querySelector(".address-list");
+
+        const newAddress = document.createElement("div");
+        newAddress.className = "address-card";
+
+        newAddress.innerHTML = `
+            <div class="row align-items-center">
+
+                <div class="col-md-1 text-center">
+                    <div class="address-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="address-name mb-2">
+                        ${name}
+                    </div>
+
+                    <div class="address-info">
+                        <i class="bi bi-geo-alt me-2"></i>
+                        ${detailAddress}, ${district}, ${city}
+                    </div>
+
+                    <div class="address-info">
+                        <i class="bi bi-telephone me-2"></i>
+                        ${phone}
+                    </div>
+
+                </div>
+
+                <div class="col-md-3 text-end">
+
+                    <button class="btn btn-outline-primary btn-edit">
+                        <i class="bi bi-pencil-square me-2"></i>
+                        Sửa
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        // Thêm địa chỉ vào danh sách
+        addressContainer.appendChild(newAddress);
+
+        // Đóng modal
+        const modal = bootstrap.Modal.getInstance(
+            document.getElementById("addAddressModal")
+        );
+
+        modal.hide();
+
+        // Reset form
+        document
+            .querySelectorAll("#addAddressModal input, #addAddressModal textarea")
+            .forEach(element => element.value = "");
+
+        alert("Thêm địa chỉ thành công!");
+
+    });
+
+</script>
+
+</body>
+
 </html>
+                      
